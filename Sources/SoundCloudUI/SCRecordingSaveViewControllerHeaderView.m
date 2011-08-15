@@ -237,7 +237,7 @@
     - CGRectGetWidth(self.logoutSeparator.bounds)
     - CGRectGetWidth(self.logoutButton.bounds);
     
-    CGSize userLabelSize = [self.userNameLabel.text sizeWithFont:self.userNameLabel.font];
+    CGSize userLabelSize = self.userNameLabel.text ? [self.userNameLabel.text sizeWithFont:self.userNameLabel.font] : CGSizeZero;
     userLabelSize.width = MIN(userLabelSize.width, maxUserLabelWidth);
     CGRect labelRect;
     labelRect.size = userLabelSize;
