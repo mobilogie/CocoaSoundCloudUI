@@ -17,7 +17,7 @@
 #import "SCBundle.h"
 #import "SCTextField.h"
 
-#import "SCAppIsRunningOnIPad.h"
+#import "UIDevie+SoundCloudUI.h"
 
 #import "SCRecordingSaveViewControllerHeaderView.h"
 
@@ -150,7 +150,7 @@
     
     // Disclosure Indicator
     self.disclosureButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
-    [self.disclosureButton setImage:[SCBundle imageFromPNGWithName:@"DisclosureIndicator"] forState:UIControlStateNormal];
+    [self.disclosureButton setImage:[SCBundle imageWithName:@"DisclosureIndicator"] forState:UIControlStateNormal];
     [self.disclosureButton sizeToFit];
     [self.disclosureButton setShowsTouchWhenHighlighted:NO];
     [self addSubview:self.disclosureButton];
@@ -191,7 +191,7 @@
     if (anImage) {
         self.avatarImageView.image = [anImage imageByResizingTo:self.avatarImageView.bounds.size forRetinaDisplay:YES];
     } else {
-        self.avatarImageView.image = [[SCBundle imageFromPNGWithName:@"default-avatar"] imageByResizingTo:self.avatarImageView.bounds.size forRetinaDisplay:YES];
+        self.avatarImageView.image = [[SCBundle imageWithName:@"default-avatar"] imageByResizingTo:self.avatarImageView.bounds.size forRetinaDisplay:YES];
     }
 }
 
@@ -315,7 +315,7 @@
 
 - (float)margin;
 {
-    if (SCAppIsRunningOnIPad()) {
+    if ([UIDevice isIPad]) {
         return 30.0;
     } else {
         return 9.0;

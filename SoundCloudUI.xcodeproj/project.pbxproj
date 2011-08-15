@@ -23,8 +23,6 @@
 		F6EF8CD013F92CF900B20B40 /* SCAddConnectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9613F92CF900B20B40 /* SCAddConnectionViewController.h */; };
 		F6EF8CD113F92CF900B20B40 /* SCAddConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9713F92CF900B20B40 /* SCAddConnectionViewController.m */; };
 		F6EF8CD213F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9813F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h */; };
-		F6EF8CD313F92CF900B20B40 /* SCAppIsRunningOnIPad.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9913F92CF900B20B40 /* SCAppIsRunningOnIPad.h */; };
-		F6EF8CD413F92CF900B20B40 /* SCAppIsRunningOnIPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9A13F92CF900B20B40 /* SCAppIsRunningOnIPad.m */; };
 		F6EF8CD513F92CF900B20B40 /* SCBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9B13F92CF900B20B40 /* SCBundle.h */; };
 		F6EF8CD613F92CF900B20B40 /* SCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9C13F92CF900B20B40 /* SCBundle.m */; };
 		F6EF8CD713F92CF900B20B40 /* SCCoverImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9D13F92CF900B20B40 /* SCCoverImageButton.h */; };
@@ -64,6 +62,8 @@
 		F6EF8CF913F92CF900B20B40 /* SCUnderlinedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8CC013F92CF900B20B40 /* SCUnderlinedButton.h */; };
 		F6EF8CFA13F92CF900B20B40 /* SCUnderlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8CC113F92CF900B20B40 /* SCUnderlinedButton.m */; };
 		F6EF8CFD13F92D5E00B20B40 /* SoundCloudUI-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8CFC13F92D5E00B20B40 /* SoundCloudUI-Prefix.pch */; };
+		F6F5E4ED13F963B700492B2B /* UIDevie+SoundCloudUI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F5E4EB13F963B700492B2B /* UIDevie+SoundCloudUI.h */; };
+		F6F5E4EE13F963B700492B2B /* UIDevie+SoundCloudUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F5E4EC13F963B700492B2B /* UIDevie+SoundCloudUI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,8 +87,6 @@
 		F6EF8C9613F92CF900B20B40 /* SCAddConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddConnectionViewController.h; sourceTree = "<group>"; };
 		F6EF8C9713F92CF900B20B40 /* SCAddConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddConnectionViewController.m; sourceTree = "<group>"; };
 		F6EF8C9813F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddConnectionViewControllerDelegate.h; sourceTree = "<group>"; };
-		F6EF8C9913F92CF900B20B40 /* SCAppIsRunningOnIPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAppIsRunningOnIPad.h; sourceTree = "<group>"; };
-		F6EF8C9A13F92CF900B20B40 /* SCAppIsRunningOnIPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAppIsRunningOnIPad.m; sourceTree = "<group>"; };
 		F6EF8C9B13F92CF900B20B40 /* SCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBundle.h; sourceTree = "<group>"; };
 		F6EF8C9C13F92CF900B20B40 /* SCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBundle.m; sourceTree = "<group>"; };
 		F6EF8C9D13F92CF900B20B40 /* SCCoverImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCoverImageButton.h; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 		F6EF8CA913F92CF900B20B40 /* SCNameAndEmailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNameAndEmailCell.m; sourceTree = "<group>"; };
 		F6EF8CAA13F92CF900B20B40 /* SCRecordingSaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecordingSaveViewController.h; sourceTree = "<group>"; };
 		F6EF8CAB13F92CF900B20B40 /* SCRecordingSaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecordingSaveViewController.m; sourceTree = "<group>"; };
-		F6EF8CAC13F92CF900B20B40 /* SCRecordingSaveViewController.m.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SCRecordingSaveViewController.m.orig; sourceTree = "<group>"; };
 		F6EF8CAD13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecordingSaveViewControllerHeaderView.h; sourceTree = "<group>"; };
 		F6EF8CAE13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecordingSaveViewControllerHeaderView.m; sourceTree = "<group>"; };
 		F6EF8CAF13F92CF900B20B40 /* SCRecordingUploadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecordingUploadProgressView.h; sourceTree = "<group>"; };
@@ -129,6 +126,8 @@
 		F6EF8CC013F92CF900B20B40 /* SCUnderlinedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUnderlinedButton.h; sourceTree = "<group>"; };
 		F6EF8CC113F92CF900B20B40 /* SCUnderlinedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUnderlinedButton.m; sourceTree = "<group>"; };
 		F6EF8CFC13F92D5E00B20B40 /* SoundCloudUI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SoundCloudUI-Prefix.pch"; sourceTree = "<group>"; };
+		F6F5E4EB13F963B700492B2B /* UIDevie+SoundCloudUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevie+SoundCloudUI.h"; sourceTree = "<group>"; };
+		F6F5E4EC13F963B700492B2B /* UIDevie+SoundCloudUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevie+SoundCloudUI.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,40 +145,12 @@
 		F678271C13F9307600CACABE /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				F678271F13F930C200CACABE /* Sharing Connections */,
-				F678272113F9310300CACABE /* Mail Picker */,
-				F678272013F930EA00CACABE /* Foursquare */,
-				F6EF8C9913F92CF900B20B40 /* SCAppIsRunningOnIPad.h */,
-				F6EF8C9A13F92CF900B20B40 /* SCAppIsRunningOnIPad.m */,
 				F6EF8C9B13F92CF900B20B40 /* SCBundle.h */,
 				F6EF8C9C13F92CF900B20B40 /* SCBundle.m */,
-				F6EF8C9D13F92CF900B20B40 /* SCCoverImageButton.h */,
-				F6EF8C9E13F92CF900B20B40 /* SCCoverImageButton.m */,
-				F6EF8CA213F92CF900B20B40 /* SCHorizontalLineView.h */,
-				F6EF8CA313F92CF900B20B40 /* SCHorizontalLineView.m */,
-				F6EF8CA413F92CF900B20B40 /* SCLoginView.h */,
-				F6EF8CA513F92CF900B20B40 /* SCLoginView.m */,
-				F6EF8CA813F92CF900B20B40 /* SCNameAndEmailCell.h */,
-				F6EF8CA913F92CF900B20B40 /* SCNameAndEmailCell.m */,
-				F6EF8CAA13F92CF900B20B40 /* SCRecordingSaveViewController.h */,
-				F6EF8CAB13F92CF900B20B40 /* SCRecordingSaveViewController.m */,
-				F6EF8CAC13F92CF900B20B40 /* SCRecordingSaveViewController.m.orig */,
-				F6EF8CAD13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.h */,
-				F6EF8CAE13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m */,
-				F6EF8CAF13F92CF900B20B40 /* SCRecordingUploadProgressView.h */,
-				F6EF8CB013F92CF900B20B40 /* SCRecordingUploadProgressView.m */,
-				F6EF8CB113F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.h */,
-				F6EF8CB213F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.m */,
-				F6EF8CB713F92CF900B20B40 /* SCSwitch.h */,
-				F6EF8CB813F92CF900B20B40 /* SCSwitch.m */,
-				F6EF8CB913F92CF900B20B40 /* SCSwitchLabel.h */,
-				F6EF8CBA13F92CF900B20B40 /* SCSwitchLabel.m */,
-				F6EF8CBB13F92CF900B20B40 /* SCTableCellBackgroundView.h */,
-				F6EF8CBC13F92CF900B20B40 /* SCTableCellBackgroundView.m */,
-				F6EF8CBD13F92CF900B20B40 /* SCTextField.h */,
-				F6EF8CBE13F92CF900B20B40 /* SCTextField.m */,
-				F6EF8CC013F92CF900B20B40 /* SCUnderlinedButton.h */,
-				F6EF8CC113F92CF900B20B40 /* SCUnderlinedButton.m */,
+				F6F5E4F313F965CF00492B2B /* Contollers */,
+				F6F5E4F213F965A500492B2B /* Controls */,
+				F6F5E4F113F9654E00492B2B /* Table Cells */,
+				F6F5E4F013F9651B00492B2B /* Views */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -274,6 +245,8 @@
 				F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudAPI.m */,
 				F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudAPI.h */,
 				F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudAPI.m */,
+				F6F5E4EB13F963B700492B2B /* UIDevie+SoundCloudUI.h */,
+				F6F5E4EC13F963B700492B2B /* UIDevie+SoundCloudUI.m */,
 			);
 			path = CocoaExtensions;
 			sourceTree = "<group>";
@@ -299,6 +272,63 @@
 			name = Others;
 			sourceTree = "<group>";
 		};
+		F6F5E4F013F9651B00492B2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF8CA413F92CF900B20B40 /* SCLoginView.h */,
+				F6EF8CA513F92CF900B20B40 /* SCLoginView.m */,
+				F6EF8CBB13F92CF900B20B40 /* SCTableCellBackgroundView.h */,
+				F6EF8CBC13F92CF900B20B40 /* SCTableCellBackgroundView.m */,
+				F6EF8CA213F92CF900B20B40 /* SCHorizontalLineView.h */,
+				F6EF8CA313F92CF900B20B40 /* SCHorizontalLineView.m */,
+				F6EF8CAD13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.h */,
+				F6EF8CAE13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m */,
+				F6EF8CAF13F92CF900B20B40 /* SCRecordingUploadProgressView.h */,
+				F6EF8CB013F92CF900B20B40 /* SCRecordingUploadProgressView.m */,
+				F6EF8CB113F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.h */,
+				F6EF8CB213F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F6F5E4F113F9654E00492B2B /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF8CA813F92CF900B20B40 /* SCNameAndEmailCell.h */,
+				F6EF8CA913F92CF900B20B40 /* SCNameAndEmailCell.m */,
+			);
+			name = "Table Cells";
+			sourceTree = "<group>";
+		};
+		F6F5E4F213F965A500492B2B /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF8C9D13F92CF900B20B40 /* SCCoverImageButton.h */,
+				F6EF8C9E13F92CF900B20B40 /* SCCoverImageButton.m */,
+				F6EF8CB713F92CF900B20B40 /* SCSwitch.h */,
+				F6EF8CB813F92CF900B20B40 /* SCSwitch.m */,
+				F6EF8CB913F92CF900B20B40 /* SCSwitchLabel.h */,
+				F6EF8CBA13F92CF900B20B40 /* SCSwitchLabel.m */,
+				F6EF8CBD13F92CF900B20B40 /* SCTextField.h */,
+				F6EF8CBE13F92CF900B20B40 /* SCTextField.m */,
+				F6EF8CC013F92CF900B20B40 /* SCUnderlinedButton.h */,
+				F6EF8CC113F92CF900B20B40 /* SCUnderlinedButton.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		F6F5E4F313F965CF00492B2B /* Contollers */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF8CAA13F92CF900B20B40 /* SCRecordingSaveViewController.h */,
+				F6EF8CAB13F92CF900B20B40 /* SCRecordingSaveViewController.m */,
+				F678271F13F930C200CACABE /* Sharing Connections */,
+				F678272113F9310300CACABE /* Mail Picker */,
+				F678272013F930EA00CACABE /* Foursquare */,
+			);
+			name = Contollers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -314,7 +344,6 @@
 				F6EF8CCC13F92CF900B20B40 /* UIView+SoundCloudAPI.h in Headers */,
 				F6EF8CD013F92CF900B20B40 /* SCAddConnectionViewController.h in Headers */,
 				F6EF8CD213F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h in Headers */,
-				F6EF8CD313F92CF900B20B40 /* SCAppIsRunningOnIPad.h in Headers */,
 				F6EF8CD513F92CF900B20B40 /* SCBundle.h in Headers */,
 				F6EF8CD713F92CF900B20B40 /* SCCoverImageButton.h in Headers */,
 				F6EF8CD913F92CF900B20B40 /* SCFoursquarePlacePickerController.h in Headers */,
@@ -336,6 +365,7 @@
 				F6EF8CF813F92CF900B20B40 /* SCUI.h in Headers */,
 				F6EF8CF913F92CF900B20B40 /* SCUnderlinedButton.h in Headers */,
 				F6EF8CFD13F92D5E00B20B40 /* SoundCloudUI-Prefix.pch in Headers */,
+				F6F5E4ED13F963B700492B2B /* UIDevie+SoundCloudUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +426,6 @@
 				F6EF8CCB13F92CF900B20B40 /* UIImage+SoundCloudAPI.m in Sources */,
 				F6EF8CCD13F92CF900B20B40 /* UIView+SoundCloudAPI.m in Sources */,
 				F6EF8CD113F92CF900B20B40 /* SCAddConnectionViewController.m in Sources */,
-				F6EF8CD413F92CF900B20B40 /* SCAppIsRunningOnIPad.m in Sources */,
 				F6EF8CD613F92CF900B20B40 /* SCBundle.m in Sources */,
 				F6EF8CD813F92CF900B20B40 /* SCCoverImageButton.m in Sources */,
 				F6EF8CDA13F92CF900B20B40 /* SCFoursquarePlacePickerController.m in Sources */,
@@ -415,6 +444,7 @@
 				F6EF8CF513F92CF900B20B40 /* SCTableCellBackgroundView.m in Sources */,
 				F6EF8CF713F92CF900B20B40 /* SCTextField.m in Sources */,
 				F6EF8CFA13F92CF900B20B40 /* SCUnderlinedButton.m in Sources */,
+				F6F5E4EE13F963B700492B2B /* UIDevie+SoundCloudUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

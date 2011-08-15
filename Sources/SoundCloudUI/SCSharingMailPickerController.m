@@ -9,7 +9,7 @@
 
 #import "SCNameAndEmailCell.h"
 #import "SCBundle.h"
-#import "SCAppIsRunningOnIPad.h"
+#import "UIDevie+SoundCloudUI.h"
 
 #import "SCSharingMailPickerController.h"
 
@@ -195,7 +195,7 @@
 	self.inputView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
     self.inputView.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth);
 	self.inputView.opaque = NO;
-    self.inputView.backgroundColor = [UIColor colorWithPatternImage:[SCBundle imageFromPNGWithName:@"mailInputBackground"]];
+    self.inputView.backgroundColor = [UIColor colorWithPatternImage:[SCBundle imageWithName:@"mailInputBackground"]];
     
     // Addresbook Button
     self.addFromAddresbookButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -288,7 +288,7 @@
 
 - (void)keyboardWillShow:(NSNotification *)notification;
 {
-    if (!SCAppIsRunningOnIPad()) {
+    if (![UIDevice isIPad]) {
         NSValue *keyboardFrameValue = [[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
         
         CGRect keyboardFrame;
@@ -309,7 +309,7 @@
 
 - (void)keyboardWillHide:(NSNotification *)notification;
 {
-    if (!SCAppIsRunningOnIPad()) {
+    if (![UIDevice isIPad]) {
         [UIView beginAnimations:@"tableViewFrame" context:nil];
         self.autocompleteTableViewController.view.frame = CGRectMake(CGRectGetMinX(inputView.frame),
                                                                      CGRectGetMaxY(inputView.frame),

@@ -47,7 +47,7 @@
     self.webView.opaque = NO;
     [self addSubview:self.webView];
     
-    self.backgroundColor = [UIColor colorWithPatternImage:[SCBundle imageFromPNGWithName:@"darkTexturedBackgroundPattern"]];
+    self.backgroundColor = [UIColor colorWithPatternImage:[SCBundle imageWithName:@"darkTexturedBackgroundPattern"]];
 }
 
 - (void)dealloc;

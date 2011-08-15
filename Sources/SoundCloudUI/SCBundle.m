@@ -21,7 +21,7 @@
     return resourceBundle;
 }
 
-+ (UIImage *)imageFromPNGWithName:(NSString *)aName;
++ (UIImage *)imageWithName:(NSString *)aName;
 {
     NSBundle *bundle = [self bundle];
     NSString *path = [bundle pathForResource:aName ofType:@"png"];

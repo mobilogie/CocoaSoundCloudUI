@@ -33,7 +33,7 @@
         connectRect.origin.y += 9.0;
         
         UIImageView *cloudImageView = [[UIImageView alloc] initWithFrame:logoRect];
-        UIImage *cloudImage = [SCBundle imageFromPNGWithName:@"cloud"];
+        UIImage *cloudImage = [SCBundle imageWithName:@"cloud"];
         cloudImageView.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin);
         cloudImageView.image = cloudImage;
         [cloudImageView sizeToFit];
@@ -41,7 +41,7 @@
         [cloudImageView release];
         
         UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:connectRect];
-        UIImage *titleImage = [SCBundle imageFromPNGWithName:@"sharetosc"];
+        UIImage *titleImage = [SCBundle imageWithName:@"sharetosc"];
         titleImageView.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin);
         titleImageView.image = titleImage;
         [titleImageView sizeToFit];

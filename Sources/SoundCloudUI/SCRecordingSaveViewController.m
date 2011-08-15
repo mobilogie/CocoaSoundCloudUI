@@ -28,7 +28,7 @@
 #import "SCRecordingUploadProgressView.h"
 #import "SCLoginView.h"
 
-#import "SCAppIsRunningOnIPad.h"
+#import "UIDevie+SoundCloudUI.h"
 
 #import "UIColor+SoundCloudAPI.h"
 
@@ -410,7 +410,7 @@ const NSArray *allServices = nil;
 
     
     // Background
-    UIImage *bg = [SCBundle imageFromPNGWithName:@"darkTexturedBackgroundPattern"];
+    UIImage *bg = [SCBundle imageWithName:@"darkTexturedBackgroundPattern"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
     
     
@@ -638,7 +638,7 @@ const NSArray *allServices = nil;
             cell.textLabel.text = [connection objectForKey:@"display_name"];
             
             SCSwitch *accessorySwitch = [[[SCSwitch alloc] init] autorelease];
-            accessorySwitch.offBackgroundImage = [[SCBundle imageFromPNGWithName:@"switch_gray"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+            accessorySwitch.offBackgroundImage = [[SCBundle imageWithName:@"switch_gray"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
             
             accessorySwitch.on = NO;
             [self.sharingConnections enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
@@ -654,7 +654,7 @@ const NSArray *allServices = nil;
             
             cell.accessoryView = accessorySwitch;
             
-            cell.imageView.image = [SCBundle imageFromPNGWithName:[NSString stringWithFormat:@"service_%@", [connection objectForKey:@"service"]]];
+            cell.imageView.image = [SCBundle imageWithName:[NSString stringWithFormat:@"service_%@", [connection objectForKey:@"service"]]];
             
             [(SCTableCellBackgroundView *)cell.backgroundView setPosition:[aTableView cellPositionForIndexPath:indexPath]];
             
@@ -673,7 +673,7 @@ const NSArray *allServices = nil;
                 cell.textLabel.backgroundColor = [UIColor clearColor];
                 cell.textLabel.font = [UIFont systemFontOfSize:15.0];
                 cell.textLabel.textColor = [UIColor whiteColor];
-                cell.accessoryView = [[[UIImageView alloc] initWithImage:[SCBundle imageFromPNGWithName:@"DisclosureIndicator"]] autorelease];
+                cell.accessoryView = [[[UIImageView alloc] initWithImage:[SCBundle imageWithName:@"DisclosureIndicator"]] autorelease];
                 cell.detailTextLabel.text = SCLocalizedString(@"configure", @"Configure");
                 cell.detailTextLabel.textColor = [UIColor whiteColor];
                 cell.detailTextLabel.backgroundColor = [UIColor clearColor];
@@ -681,7 +681,7 @@ const NSArray *allServices = nil;
             
             NSDictionary *service = [self.unconnectedServices objectAtIndex:indexPath.row - self.availableConnections.count];
             cell.textLabel.text = [service objectForKey:@"displayName"];
-            cell.imageView.image = [SCBundle imageFromPNGWithName:[NSString stringWithFormat:@"service_%@", [service objectForKey:@"service"]]];
+            cell.imageView.image = [SCBundle imageWithName:[NSString stringWithFormat:@"service_%@", [service objectForKey:@"service"]]];
             
             [(SCTableCellBackgroundView *)cell.backgroundView setPosition:[aTableView cellPositionForIndexPath:indexPath]];
             return cell;
@@ -1029,7 +1029,7 @@ const NSArray *allServices = nil;
 
 - (IBAction)selectImage;
 {
-    if (SCAppIsRunningOnIPad() && [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary].count > 0) {
+    if ([UIDevice isIPad] && [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary].count > 0) {
         
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
@@ -1466,7 +1466,7 @@ const NSArray *allServices = nil;
 
 - (float)cellMargin;
 {
-    if (SCAppIsRunningOnIPad()) {
+    if ([UIDevice isIPad]) {
         return 30.0;
     } else {
         return 9.0;

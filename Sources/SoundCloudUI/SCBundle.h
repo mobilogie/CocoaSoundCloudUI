@@ -11,7 +11,7 @@
 
 @interface SCBundle : NSObject
 + (NSBundle *)bundle;
-+ (UIImage *)imageFromPNGWithName:(NSString *)aName;
++ (UIImage *)imageWithName:(NSString *)aName;
 @end
 
 #define SCLocalizedString(key, comment) [[SCBundle bundle] localizedStringForKey:key value:key table:nil]

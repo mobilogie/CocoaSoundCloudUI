@@ -68,12 +68,12 @@
 	maskLayer.delegate = self;
 	self.layer.mask = maskLayer;
     
-    self.onBackgroundImage = [[SCBundle imageFromPNGWithName:@"switch_blue"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
-    self.offBackgroundImage = [[SCBundle imageFromPNGWithName:@"switch_orange"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
-    self.handleImage = [[SCBundle imageFromPNGWithName:@"switch_slider"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
-    self.handleHighlightImage = [[SCBundle imageFromPNGWithName:@"switch_slider-down"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
-    self.overlayImage = [[SCBundle imageFromPNGWithName:@"switch_filter"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
-    self.maskImage = [[SCBundle imageFromPNGWithName:@"switch_mask"] stretchableImageWithLeftCapWidth:3 topCapHeight:3];
+    self.onBackgroundImage = [[SCBundle imageWithName:@"switch_blue"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+    self.offBackgroundImage = [[SCBundle imageWithName:@"switch_orange"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+    self.handleImage = [[SCBundle imageWithName:@"switch_slider"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+    self.handleHighlightImage = [[SCBundle imageWithName:@"switch_slider-down"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+    self.overlayImage = [[SCBundle imageWithName:@"switch_filter"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+    self.maskImage = [[SCBundle imageWithName:@"switch_mask"] stretchableImageWithLeftCapWidth:3 topCapHeight:3];
 }
 
 - (void)awakeFromNib;

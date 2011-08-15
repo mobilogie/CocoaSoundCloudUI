@@ -80,8 +80,8 @@ typedef enum SCRecordingUploadProgressViewState {
     [self addSubview:self.progressView];
     
     self.cancelButton = [[[UIButton alloc] init] autorelease];
-    [self.cancelButton setImage:[SCBundle imageFromPNGWithName:@"cancel_dark"] forState:UIControlStateNormal];
-    [self.cancelButton setImage:[SCBundle imageFromPNGWithName:@"cancelUpload"] forState:UIControlStateHighlighted];
+    [self.cancelButton setImage:[SCBundle imageWithName:@"cancel_dark"] forState:UIControlStateNormal];
+    [self.cancelButton setImage:[SCBundle imageWithName:@"cancelUpload"] forState:UIControlStateHighlighted];
     [self addSubview:self.cancelButton];
 }
 
@@ -127,11 +127,11 @@ typedef enum SCRecordingUploadProgressViewState {
     
     self.successLabel = [[[UILabel alloc] init] autorelease];
     if (success) {
-        self.successImageView = [[[UIImageView alloc] initWithImage:[SCBundle imageFromPNGWithName:@"success"]] autorelease];
+        self.successImageView = [[[UIImageView alloc] initWithImage:[SCBundle imageWithName:@"success"]] autorelease];
         self.successLabel.text = SCLocalizedString(@"record_save_upload_success", @"Yay, that worked!");
         
     } else {
-        self.successImageView = [[[UIImageView alloc] initWithImage:[SCBundle imageFromPNGWithName:@"fail"]] autorelease];
+        self.successImageView = [[[UIImageView alloc] initWithImage:[SCBundle imageWithName:@"fail"]] autorelease];
         self.successLabel.text = SCLocalizedString(@"record_save_upload_fail", @"Ok, that went wrong.");
     }
     [self.successImageView sizeToFit];
