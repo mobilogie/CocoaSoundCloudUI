@@ -1,0 +1,231 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F6EF8C6513F929D700B20B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EF8C6413F929D700B20B40 /* Foundation.framework */; };
+		F6EF8C6B13F929D700B20B40 /* SoundCloudUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C6A13F929D700B20B40 /* SoundCloudUI.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F6EF8C6113F929D700B20B40 /* libSoundCloudUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoundCloudUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6EF8C6413F929D700B20B40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F6EF8C6813F929D700B20B40 /* SoundCloudUI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoundCloudUI-Prefix.pch"; sourceTree = "<group>"; };
+		F6EF8C6913F929D700B20B40 /* SoundCloudUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCloudUI.h; sourceTree = "<group>"; };
+		F6EF8C6A13F929D700B20B40 /* SoundCloudUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundCloudUI.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6EF8C5E13F929D700B20B40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6EF8C6513F929D700B20B40 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F6EF8C5613F929D700B20B40 = {
+			isa = PBXGroup;
+			children = (
+				F6EF8C6613F929D700B20B40 /* SoundCloudUI */,
+				F6EF8C6313F929D700B20B40 /* Frameworks */,
+				F6EF8C6213F929D700B20B40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F6EF8C6213F929D700B20B40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF8C6113F929D700B20B40 /* libSoundCloudUI.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6EF8C6313F929D700B20B40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF8C6413F929D700B20B40 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6EF8C6613F929D700B20B40 /* SoundCloudUI */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF8C6913F929D700B20B40 /* SoundCloudUI.h */,
+				F6EF8C6A13F929D700B20B40 /* SoundCloudUI.m */,
+				F6EF8C6713F929D700B20B40 /* Supporting Files */,
+			);
+			path = SoundCloudUI;
+			sourceTree = "<group>";
+		};
+		F6EF8C6713F929D700B20B40 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6EF8C6813F929D700B20B40 /* SoundCloudUI-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F6EF8C5F13F929D700B20B40 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F6EF8C6013F929D700B20B40 /* SoundCloudUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6EF8C6E13F929D700B20B40 /* Build configuration list for PBXNativeTarget "SoundCloudUI" */;
+			buildPhases = (
+				F6EF8C5D13F929D700B20B40 /* Sources */,
+				F6EF8C5E13F929D700B20B40 /* Frameworks */,
+				F6EF8C5F13F929D700B20B40 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoundCloudUI;
+			productName = SoundCloudUI;
+			productReference = F6EF8C6113F929D700B20B40 /* libSoundCloudUI.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6EF8C5813F929D700B20B40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = nxtbgthng;
+			};
+			buildConfigurationList = F6EF8C5B13F929D700B20B40 /* Build configuration list for PBXProject "SoundCloudUI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F6EF8C5613F929D700B20B40;
+			productRefGroup = F6EF8C6213F929D700B20B40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F6EF8C6013F929D700B20B40 /* SoundCloudUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6EF8C5D13F929D700B20B40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6EF8C6B13F929D700B20B40 /* SoundCloudUI.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F6EF8C6C13F929D700B20B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F6EF8C6D13F929D700B20B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F6EF8C6F13F929D700B20B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SoundCloudUI.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SoundCloudUI/SoundCloudUI-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F6EF8C7013F929D700B20B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SoundCloudUI.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SoundCloudUI/SoundCloudUI-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6EF8C5B13F929D700B20B40 /* Build configuration list for PBXProject "SoundCloudUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6EF8C6C13F929D700B20B40 /* Debug */,
+				F6EF8C6D13F929D700B20B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6EF8C6E13F929D700B20B40 /* Build configuration list for PBXNativeTarget "SoundCloudUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6EF8C6F13F929D700B20B40 /* Debug */,
+				F6EF8C7013F929D700B20B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F6EF8C5813F929D700B20B40 /* Project object */;
+}
