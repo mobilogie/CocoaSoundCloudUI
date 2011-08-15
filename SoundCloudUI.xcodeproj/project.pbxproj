@@ -20,8 +20,6 @@
 		F6EF8CCB13F92CF900B20B40 /* UIImage+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudAPI.m */; };
 		F6EF8CCC13F92CF900B20B40 /* UIView+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudAPI.h */; };
 		F6EF8CCD13F92CF900B20B40 /* UIView+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudAPI.m */; };
-		F6EF8CCE13F92CF900B20B40 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9413F92CF900B20B40 /* JSONKit.h */; };
-		F6EF8CCF13F92CF900B20B40 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9513F92CF900B20B40 /* JSONKit.m */; };
 		F6EF8CD013F92CF900B20B40 /* SCAddConnectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9613F92CF900B20B40 /* SCAddConnectionViewController.h */; };
 		F6EF8CD113F92CF900B20B40 /* SCAddConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9713F92CF900B20B40 /* SCAddConnectionViewController.m */; };
 		F6EF8CD213F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9813F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h */; };
@@ -86,8 +84,6 @@
 		F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SoundCloudAPI.m"; sourceTree = "<group>"; };
 		F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SoundCloudAPI.h"; sourceTree = "<group>"; };
 		F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SoundCloudAPI.m"; sourceTree = "<group>"; };
-		F6EF8C9413F92CF900B20B40 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		F6EF8C9513F92CF900B20B40 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		F6EF8C9613F92CF900B20B40 /* SCAddConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddConnectionViewController.h; sourceTree = "<group>"; };
 		F6EF8C9713F92CF900B20B40 /* SCAddConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddConnectionViewController.m; sourceTree = "<group>"; };
 		F6EF8C9813F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddConnectionViewControllerDelegate.h; sourceTree = "<group>"; };
@@ -150,7 +146,6 @@
 		F678271C13F9307600CACABE /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				F678271E13F930AD00CACABE /* JSON */,
 				F678271F13F930C200CACABE /* Sharing Connections */,
 				F678272113F9310300CACABE /* Mail Picker */,
 				F678272013F930EA00CACABE /* Foursquare */,
@@ -187,15 +182,6 @@
 				F6EF8CC113F92CF900B20B40 /* SCUnderlinedButton.m */,
 			);
 			name = Private;
-			sourceTree = "<group>";
-		};
-		F678271E13F930AD00CACABE /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				F6EF8C9413F92CF900B20B40 /* JSONKit.h */,
-				F6EF8C9513F92CF900B20B40 /* JSONKit.m */,
-			);
-			name = JSON;
 			sourceTree = "<group>";
 		};
 		F678271F13F930C200CACABE /* Sharing Connections */ = {
@@ -326,7 +312,6 @@
 				F6EF8CC813F92CF900B20B40 /* UIColor+SoundCloudAPI.h in Headers */,
 				F6EF8CCA13F92CF900B20B40 /* UIImage+SoundCloudAPI.h in Headers */,
 				F6EF8CCC13F92CF900B20B40 /* UIView+SoundCloudAPI.h in Headers */,
-				F6EF8CCE13F92CF900B20B40 /* JSONKit.h in Headers */,
 				F6EF8CD013F92CF900B20B40 /* SCAddConnectionViewController.h in Headers */,
 				F6EF8CD213F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h in Headers */,
 				F6EF8CD313F92CF900B20B40 /* SCAppIsRunningOnIPad.h in Headers */,
@@ -410,7 +395,6 @@
 				F6EF8CC913F92CF900B20B40 /* UIColor+SoundCloudAPI.m in Sources */,
 				F6EF8CCB13F92CF900B20B40 /* UIImage+SoundCloudAPI.m in Sources */,
 				F6EF8CCD13F92CF900B20B40 /* UIView+SoundCloudAPI.m in Sources */,
-				F6EF8CCF13F92CF900B20B40 /* JSONKit.m in Sources */,
 				F6EF8CD113F92CF900B20B40 /* SCAddConnectionViewController.m in Sources */,
 				F6EF8CD413F92CF900B20B40 /* SCAppIsRunningOnIPad.m in Sources */,
 				F6EF8CD613F92CF900B20B40 /* SCBundle.m in Sources */,
