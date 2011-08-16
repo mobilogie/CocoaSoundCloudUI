@@ -18,6 +18,7 @@
  * 
  */
 
+#import "SCAPI.h"
 #import "SCShareViewController.h"
 #import "SCLoginViewController.h"
 
