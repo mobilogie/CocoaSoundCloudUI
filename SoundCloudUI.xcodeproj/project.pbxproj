@@ -497,7 +497,10 @@
 				DSTROOT = /tmp/SoundCloudUI.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/SoundCloudUI-Prefix.pch";
-				HEADER_SEARCH_PATHS = "../SoundCloudAPI/**";
+				HEADER_SEARCH_PATHS = (
+					"../JSONKit/**",
+					"../SoundCloudAPI/**",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -510,7 +513,10 @@
 				DSTROOT = /tmp/SoundCloudUI.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/SoundCloudUI-Prefix.pch";
-				HEADER_SEARCH_PATHS = "../SoundCloudAPI/**";
+				HEADER_SEARCH_PATHS = (
+					"../JSONKit/**",
+					"../SoundCloudAPI/**",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
