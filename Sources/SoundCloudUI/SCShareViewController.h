@@ -19,14 +19,17 @@
  */
 
 
-typedef void(^SCSharingViewControllerComletionHandler)(BOOL canceled, NSDictionary *trackInfo);
+typedef void(^SCSharingViewControllerComletionHandler)(NSDictionary *trackInfo, NSError *error);
 
 @interface SCShareViewController : UINavigationController
 
 #pragma mark Class methods
 
-+ (SCShareViewController *)shareViewControllerWithFileURL:(NSURL *)aFileURL completionHandler:(SCSharingViewControllerComletionHandler)aCompletionHandler;
-+ (SCShareViewController *)shareViewControllerWithFileData:(NSData *)someData completionHandler:(SCSharingViewControllerComletionHandler)aCompletionHandler;
++ (SCShareViewController *)shareViewControllerWithFileURL:(NSURL *)aFileURL
+                                        completionHandler:(SCSharingViewControllerComletionHandler)aCompletionHandler;
+
++ (SCShareViewController *)shareViewControllerWithFileData:(NSData *)someData
+                                         completionHandler:(SCSharingViewControllerComletionHandler)aCompletionHandler;
 
 #pragma mark Accessors
 
@@ -37,6 +40,7 @@ typedef void(^SCSharingViewControllerComletionHandler)(BOOL canceled, NSDictiona
 
 #pragma mark Foursquare
 
-- (void)setFoursquareClientID:(NSString *)aClientID clientSecret:(NSString *)aClientSecret;
+- (void)setFoursquareClientID:(NSString *)aClientID
+                 clientSecret:(NSString *)aClientSecret;
 
 @end

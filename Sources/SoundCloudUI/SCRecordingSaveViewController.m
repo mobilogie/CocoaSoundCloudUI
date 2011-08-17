@@ -28,6 +28,8 @@
 #import "SCRecordingUploadProgressView.h"
 #import "SCLoginView.h"
 
+#import "SCUIErrors.h"
+
 #import "UIDevie+SoundCloudUI.h"
 
 #import "UIColor+SoundCloudAPI.h"
@@ -1219,7 +1221,9 @@ const NSArray *allServices = nil;
                          double delayInSeconds = 1.0;
                          dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
                          dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                             self.completionHandler(NO, result);
+                             if (self.completionHandler) {
+                                 self.completionHandler(result, nil);
+                             }
                              [self.parentViewController dismissModalViewControllerAnimated:YES];
                          });
                      } else {
@@ -1243,7 +1247,10 @@ const NSArray *allServices = nil;
 
 - (IBAction)cancel;
 {
-    self.completionHandler(YES, nil);
+    if (self.completionHandler) {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"Canceled by user." forKey:NSLocalizedDescriptionKey];
+        self.completionHandler(nil, [NSError errorWithDomain:SCUIErrorDomain code:SCUICanceledErrorCode userInfo:userInfo]);
+    }
     [self.parentViewController dismissModalViewControllerAnimated:YES];
 }
 
@@ -1292,6 +1299,7 @@ const NSArray *allServices = nil;
 
 
 #pragma mark Tool Bar Animation
+
 - (void)hideToolBar;
 {
     [UIView animateWithDuration:0.2
@@ -1370,11 +1378,10 @@ const NSArray *allServices = nil;
 
 - (void)loginView:(SCLoginView *)aLoginView didFailWithError:(NSError *)anError;
 {
-    NSLog(@"Login did fail with error: %@", anError);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[anError localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
-    [alert autorelease];
-    [self cancel];
+    if (self.completionHandler) {
+        self.completionHandler(nil, anError);
+    }
+    [self.parentViewController dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark Helpers

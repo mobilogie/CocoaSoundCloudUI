@@ -19,6 +19,8 @@
  */
 
 #import "SCAPI.h"
+
+#import "SCUIErrors.h"
 #import "SCShareViewController.h"
 #import "SCLoginViewController.h"
 

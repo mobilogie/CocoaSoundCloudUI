@@ -27,6 +27,8 @@
 #import "SCConstants.h"
 #import "SCBundle.h"
 
+#import "SCUIErrors.h"
+
 #import "SCLoginViewController.h"
 
 
@@ -144,6 +146,10 @@
 
 - (void)accountDidChange:(NSNotification *)aNotification;
 {
+    if (self.completionHandler) {
+        self.completionHandler(nil);
+    }
+    
     [self.parentViewController dismissModalViewControllerAnimated:YES];
 }
 
@@ -151,7 +157,7 @@
 {
     if (self.completionHandler) {
         NSError *error = [[aNotification userInfo] objectForKey:kNXOAuth2AccountStoreError];
-        self.completionHandler(NO, error);
+        self.completionHandler(error);
     }
     
     [self.parentViewController dismissModalViewControllerAnimated:YES];
@@ -161,8 +167,12 @@
 #pragma mark Private
 
 - (IBAction)cancel;
-{
-    self.completionHandler(YES, nil);
+{   
+    if (self.completionHandler) {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"Canceled by user." forKey:NSLocalizedDescriptionKey];
+        self.completionHandler([NSError errorWithDomain:SCUIErrorDomain code:SCUICanceledErrorCode userInfo:userInfo]);
+    }
+    
     [self.parentViewController dismissModalViewControllerAnimated:YES];
 }
 

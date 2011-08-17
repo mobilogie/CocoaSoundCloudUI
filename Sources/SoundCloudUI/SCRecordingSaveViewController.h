@@ -13,7 +13,7 @@
 #import "SCFoursquarePlacePickerControllerDelegate.h"
 #import "SCAddConnectionViewControllerDelegate.h"
 
-typedef void(^SCRecordingSaveViewControllerCompletionHandler)(BOOL canceled, NSDictionary *trackInfo);
+typedef void(^SCRecordingSaveViewControllerCompletionHandler)(NSDictionary *trackInfo, NSError *error);
 
 @class SCSwitch;
 

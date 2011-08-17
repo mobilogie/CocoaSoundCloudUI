@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F697FF1713FBB68200B9369F /* SCUIErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = F697FF1513FBB68200B9369F /* SCUIErrors.h */; };
+		F697FF1813FBB68200B9369F /* SCUIErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F697FF1613FBB68200B9369F /* SCUIErrors.m */; };
 		F6EF8C6513F929D700B20B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EF8C6413F929D700B20B40 /* Foundation.framework */; };
 		F6EF8CC213F92CF900B20B40 /* NSData+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudAPI.h */; };
 		F6EF8CC313F92CF900B20B40 /* NSData+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8813F92CF900B20B40 /* NSData+SoundCloudAPI.m */; };
@@ -70,6 +72,8 @@
 		F678272213F9315B00CACABE /* libOAuth2Client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOAuth2Client.a; path = "../SoundCloudAPI/Outsourced/OAuth2Client/build/Release-iphoneos/libOAuth2Client.a"; sourceTree = "<group>"; };
 		F678272313F9315B00CACABE /* libSoundCloudAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSoundCloudAPI.a; path = "../SoundCloudAPI/build/Release-iphoneos/libSoundCloudAPI.a"; sourceTree = "<group>"; };
 		F678274413F9446C00CACABE /* SoundCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SoundCloud.bundle; sourceTree = "<group>"; };
+		F697FF1513FBB68200B9369F /* SCUIErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUIErrors.h; sourceTree = "<group>"; };
+		F697FF1613FBB68200B9369F /* SCUIErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUIErrors.m; sourceTree = "<group>"; };
 		F6EF8C6113F929D700B20B40 /* libSoundCloudUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoundCloudUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EF8C6413F929D700B20B40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SoundCloudAPI.h"; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				F6EF8CBF13F92CF900B20B40 /* SCUI.h */,
+				F697FF1513FBB68200B9369F /* SCUIErrors.h */,
+				F697FF1613FBB68200B9369F /* SCUIErrors.m */,
 				F6EF8CA613F92CF900B20B40 /* SCLoginViewController.h */,
 				F6EF8CA713F92CF900B20B40 /* SCLoginViewController.m */,
 				F6EF8CB313F92CF900B20B40 /* SCShareViewController.h */,
@@ -366,6 +372,7 @@
 				F6EF8CF913F92CF900B20B40 /* SCUnderlinedButton.h in Headers */,
 				F6EF8CFD13F92D5E00B20B40 /* SoundCloudUI-Prefix.pch in Headers */,
 				F6F5E4ED13F963B700492B2B /* UIDevie+SoundCloudUI.h in Headers */,
+				F697FF1713FBB68200B9369F /* SCUIErrors.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +452,7 @@
 				F6EF8CF713F92CF900B20B40 /* SCTextField.m in Sources */,
 				F6EF8CFA13F92CF900B20B40 /* SCUnderlinedButton.m in Sources */,
 				F6F5E4EE13F963B700492B2B /* UIDevie+SoundCloudUI.m in Sources */,
+				F697FF1813FBB68200B9369F /* SCUIErrors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

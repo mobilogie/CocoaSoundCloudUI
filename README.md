@@ -83,21 +83,32 @@ To share a track you just have to create a `SCShareViewController` with the URL 
         NSURL *trackURL = // ... an URL to the audio file
         
         SCShareViewController *shareViewController = [SCShareViewController shareViewControllerWithFileURL:trackURL
-                                                                                         completionHandler:^(BOOL canceled, NSDictionary *trackInfo){
-                                                                                             if (canceled) {
-                                                                                                 NSLog(@"Sharing sound with Soundcloud canceled.");
-                                                                                             } else {
+                                                                                         completionHandler:^(NSDictionary *trackInfo, NSError *error){
+                                                                                             if (SC_CANCELED(error)) {
+                                                                                                 NSLog(@"Canceled!");
+                                                                                             } else if (error) {
+                                                                                                 NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+                                                                                             } else {    
+                                                                                                 
+                                                                                                 // If you want to do something with the uploaded 
+                                                                                                 // track this is the right place for that.
                                                                                                  NSLog(@"Uploaded track: %@", trackInfo);
                                                                                              }
                                                                                          }];
         
         // If your app is a registered foursquare app, you can set the client id and secret.
         // The user will then see a place picker where a location can be selected.
-        // If you don't set them, the location is set via a plain text filed.
+        // If you don't set them, the user sees a plain plain text filed for the place.
+        [shareViewController setFoursquareClientID:@"<foursquare client id>"
+                                      clientSecret:@"<foursquare client secret>"];
         
-        [shareViewController setFoursquareClientID:@"<>"
-                                      clientSecret:@"<>"];
+        // We can preset the title ...
+        [shareViewController setTitle:@"Funny sounds"];
         
+        // ... and other options like the private flag.
+        [shareViewController setPrivate:NO];
+        
+        // Now present the share view controller.
         [self presentModalViewController:shareViewController animated:YES];
     }
 
@@ -122,9 +133,15 @@ Assuming your app isn't authenticated (`[SCSoundCloud account] == nil`) or you w
     {
         [SCSoundCloud requestAccessWithPreparedAuthorizationURLHandler:^(NSURL *preparedURL){
             SCLoginViewController *loginViewController = [SCLoginViewController loginViewControllerWithPreparedURL:preparedURL
-                                                                                                 completionHandler:^(BOOL canceled, NSError *error){
-                                                                                                     
-                                                                                                     }];
+                                                                                                 completionHandler:^(NSError *error){
+                                                                                                      if (SC_CANCELED(error)) {
+                                                                                                          NSLog(@"Canceled!");
+                                                                                                      } else if (error) {
+                                                                                                          NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+                                                                                                      } else {                                                                                            
+                                                                                                          NSLog(@"Done!");
+                                                                                                      }
+                                                                                                 }];
             [self presentModalViewController:loginViewController animated:YES];
         }];
     }
