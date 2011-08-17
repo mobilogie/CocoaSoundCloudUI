@@ -409,6 +409,7 @@
 		F6EF8C5813F929D700B20B40 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = nxtbgthng;
 			};
 			buildConfigurationList = F6EF8C5B13F929D700B20B40 /* Build configuration list for PBXProject "SoundCloudUI" */;
