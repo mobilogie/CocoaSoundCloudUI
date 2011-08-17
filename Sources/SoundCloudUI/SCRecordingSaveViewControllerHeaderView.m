@@ -239,7 +239,7 @@
     
     CGSize userLabelSize = self.userNameLabel.text ? [self.userNameLabel.text sizeWithFont:self.userNameLabel.font] : CGSizeZero;
     userLabelSize.width = MIN(userLabelSize.width, maxUserLabelWidth);
-    CGRect labelRect;
+    CGRect labelRect = CGRectZero;
     labelRect.size = userLabelSize;
     labelRect.origin = CGPointMake(CGRectGetMaxX(self.avatarImageView.frame) + SPACING, SPACING);
     self.userNameLabel.frame = labelRect;
@@ -259,7 +259,7 @@
                                                 fontSize);
     }
     
-    CGRect logoutButtonFrame;
+    CGRect logoutButtonFrame = CGRectZero;
     logoutButtonFrame.size = [self.logoutButton.titleLabel.text sizeWithFont:self.logoutButton.titleLabel.font];
     logoutButtonFrame.origin = CGPointMake(CGRectGetMaxX(self.logoutSeparator.frame) + SPACING, SPACING);
     self.logoutButton.frame = logoutButtonFrame;
