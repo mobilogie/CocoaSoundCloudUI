@@ -1,5 +1,5 @@
 //
-//  SCSCRecordingSaveViewControllerTitleView.m
+//  SCConnectToSoundCloudTitleView.m
 //  SoundCloudAPI
 //
 //  Created by Tobias Kräntzer on 28.07.11.
@@ -8,9 +8,9 @@
 
 #import "SCBundle.h"
 
-#import "SCSCRecordingSaveViewControllerTitleView.h"
+#import "SCConnectToSoundCloudTitleView.h"
 
-@implementation SCSCRecordingSaveViewControllerTitleView
+@implementation SCConnectToSoundCloudTitleView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -22,29 +22,21 @@
         
         self.autoresizingMask = (UIViewAutoresizingFlexibleWidth);
         
-        CGRect logoRect;
-        CGRect connectRect;
-        CGRect closeRect;
-        CGRectDivide(self.bounds, &logoRect, &connectRect, 40.0, CGRectMinXEdge);
-        CGRectDivide(connectRect, &closeRect, &connectRect, connectRect.size.height, CGRectMaxXEdge);
-        
-        logoRect.origin.x += 6.0;
-        logoRect.origin.y += 8.0;
-        connectRect.origin.y += 9.0;
-        
-        UIImageView *cloudImageView = [[UIImageView alloc] initWithFrame:logoRect];
-        UIImage *cloudImage = [SCBundle imageWithName:@"cloud"];
+        UIImageView *cloudImageView = [[UIImageView alloc] init];
+//        cloudImageView.backgroundColor = [UIColor greenColor];
         cloudImageView.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin);
-        cloudImageView.image = cloudImage;
+        cloudImageView.image = [SCBundle imageWithName:@"cloud"];
         [cloudImageView sizeToFit];
+        cloudImageView.frame = CGRectMake(9, 7, CGRectGetWidth(cloudImageView.frame), CGRectGetHeight(cloudImageView.frame));
         [self addSubview:cloudImageView];
         [cloudImageView release];
         
-        UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:connectRect];
-        UIImage *titleImage = [SCBundle imageWithName:@"sharetosc"];
+        UIImageView *titleImageView = [[UIImageView alloc] init];
+//        titleImageView.backgroundColor = [UIColor yellowColor];
         titleImageView.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin);
-        titleImageView.image = titleImage;
+        titleImageView.image = [SCBundle imageWithName:@"connecttosc"];
         [titleImageView sizeToFit];
+        titleImageView.frame = CGRectMake(43, 7, CGRectGetWidth(titleImageView.frame), CGRectGetHeight(titleImageView.frame));
         [self addSubview:titleImageView];
         [titleImageView release];
     }

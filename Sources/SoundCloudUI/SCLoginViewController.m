@@ -19,7 +19,7 @@
  */
 
 #import "SCLoginView.h"
-#import "SCSCRecordingSaveViewControllerTitleView.h"
+#import "SCConnectToSoundCloudTitleView.h"
 #import "NXOAuth2AccountStore.h"
 
 #import "SCSoundCloud.h"
@@ -133,7 +133,7 @@
 - (void)viewWillAppear:(BOOL)animated;
 {
     [super viewWillAppear:animated];
-    [self.view addSubview:[[[SCSCRecordingSaveViewControllerTitleView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.bounds), 28.0)] autorelease]];
+    [self.view addSubview:[[[SCConnectToSoundCloudTitleView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.bounds), 28.0)] autorelease]];
     self.loginView.frame = CGRectMake(0, 28.0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 28.0);
 }
 

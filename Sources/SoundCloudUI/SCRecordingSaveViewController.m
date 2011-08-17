@@ -23,7 +23,7 @@
 #import "SCLoginViewController.h"
 
 #import "SCBundle.h"
-#import "SCSCRecordingSaveViewControllerTitleView.h"
+#import "SCShareToSoundCloudTitleView.h"
 #import "SCRecordingSaveViewControllerHeaderView.h"
 #import "SCRecordingUploadProgressView.h"
 #import "SCLoginView.h"
@@ -502,7 +502,7 @@ const NSArray *allServices = nil;
 {
     [super viewWillAppear:animated];
     
-    [self.view addSubview:[[[SCSCRecordingSaveViewControllerTitleView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.bounds), 28.0)] autorelease]];
+    [self.view addSubview:[[[SCShareToSoundCloudTitleView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.bounds), 28.0)] autorelease]];
     
     [self.toolBar sizeToFit];
     [self.toolBar setFrame:CGRectMake(0.0,

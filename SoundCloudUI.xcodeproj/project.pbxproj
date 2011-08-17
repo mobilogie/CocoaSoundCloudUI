@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6115A4F13FC02AA006489E9 /* SCConnectToSoundCloudTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = F6115A4D13FC02A9006489E9 /* SCConnectToSoundCloudTitleView.h */; };
+		F6115A5013FC02AA006489E9 /* SCConnectToSoundCloudTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6115A4E13FC02AA006489E9 /* SCConnectToSoundCloudTitleView.m */; };
 		F697FF1713FBB68200B9369F /* SCUIErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = F697FF1513FBB68200B9369F /* SCUIErrors.h */; };
 		F697FF1813FBB68200B9369F /* SCUIErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F697FF1613FBB68200B9369F /* SCUIErrors.m */; };
 		F6EF8C6513F929D700B20B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EF8C6413F929D700B20B40 /* Foundation.framework */; };
@@ -46,8 +48,8 @@
 		F6EF8CE713F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8CAE13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m */; };
 		F6EF8CE813F92CF900B20B40 /* SCRecordingUploadProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8CAF13F92CF900B20B40 /* SCRecordingUploadProgressView.h */; };
 		F6EF8CE913F92CF900B20B40 /* SCRecordingUploadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8CB013F92CF900B20B40 /* SCRecordingUploadProgressView.m */; };
-		F6EF8CEA13F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8CB113F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.h */; };
-		F6EF8CEB13F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8CB213F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.m */; };
+		F6EF8CEA13F92CF900B20B40 /* SCShareToSoundCloudTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8CB113F92CF900B20B40 /* SCShareToSoundCloudTitleView.h */; };
+		F6EF8CEB13F92CF900B20B40 /* SCShareToSoundCloudTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8CB213F92CF900B20B40 /* SCShareToSoundCloudTitleView.m */; };
 		F6EF8CEC13F92CF900B20B40 /* SCShareViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8CB313F92CF900B20B40 /* SCShareViewController.h */; };
 		F6EF8CED13F92CF900B20B40 /* SCShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8CB413F92CF900B20B40 /* SCShareViewController.m */; };
 		F6EF8CEE13F92CF900B20B40 /* SCSharingMailPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8CB513F92CF900B20B40 /* SCSharingMailPickerController.h */; };
@@ -69,6 +71,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F6115A4D13FC02A9006489E9 /* SCConnectToSoundCloudTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConnectToSoundCloudTitleView.h; sourceTree = "<group>"; };
+		F6115A4E13FC02AA006489E9 /* SCConnectToSoundCloudTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCConnectToSoundCloudTitleView.m; sourceTree = "<group>"; };
 		F678272213F9315B00CACABE /* libOAuth2Client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOAuth2Client.a; path = "../SoundCloudAPI/Outsourced/OAuth2Client/build/Release-iphoneos/libOAuth2Client.a"; sourceTree = "<group>"; };
 		F678272313F9315B00CACABE /* libSoundCloudAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSoundCloudAPI.a; path = "../SoundCloudAPI/build/Release-iphoneos/libSoundCloudAPI.a"; sourceTree = "<group>"; };
 		F678274413F9446C00CACABE /* SoundCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SoundCloud.bundle; sourceTree = "<group>"; };
@@ -112,8 +116,8 @@
 		F6EF8CAE13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecordingSaveViewControllerHeaderView.m; sourceTree = "<group>"; };
 		F6EF8CAF13F92CF900B20B40 /* SCRecordingUploadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecordingUploadProgressView.h; sourceTree = "<group>"; };
 		F6EF8CB013F92CF900B20B40 /* SCRecordingUploadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecordingUploadProgressView.m; sourceTree = "<group>"; };
-		F6EF8CB113F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSCRecordingSaveViewControllerTitleView.h; sourceTree = "<group>"; };
-		F6EF8CB213F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSCRecordingSaveViewControllerTitleView.m; sourceTree = "<group>"; };
+		F6EF8CB113F92CF900B20B40 /* SCShareToSoundCloudTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareToSoundCloudTitleView.h; sourceTree = "<group>"; };
+		F6EF8CB213F92CF900B20B40 /* SCShareToSoundCloudTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareToSoundCloudTitleView.m; sourceTree = "<group>"; };
 		F6EF8CB313F92CF900B20B40 /* SCShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareViewController.h; sourceTree = "<group>"; };
 		F6EF8CB413F92CF900B20B40 /* SCShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareViewController.m; sourceTree = "<group>"; };
 		F6EF8CB513F92CF900B20B40 /* SCSharingMailPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSharingMailPickerController.h; sourceTree = "<group>"; };
@@ -291,8 +295,10 @@
 				F6EF8CAE13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m */,
 				F6EF8CAF13F92CF900B20B40 /* SCRecordingUploadProgressView.h */,
 				F6EF8CB013F92CF900B20B40 /* SCRecordingUploadProgressView.m */,
-				F6EF8CB113F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.h */,
-				F6EF8CB213F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.m */,
+				F6EF8CB113F92CF900B20B40 /* SCShareToSoundCloudTitleView.h */,
+				F6EF8CB213F92CF900B20B40 /* SCShareToSoundCloudTitleView.m */,
+				F6115A4D13FC02A9006489E9 /* SCConnectToSoundCloudTitleView.h */,
+				F6115A4E13FC02AA006489E9 /* SCConnectToSoundCloudTitleView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -361,7 +367,7 @@
 				F6EF8CE413F92CF900B20B40 /* SCRecordingSaveViewController.h in Headers */,
 				F6EF8CE613F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.h in Headers */,
 				F6EF8CE813F92CF900B20B40 /* SCRecordingUploadProgressView.h in Headers */,
-				F6EF8CEA13F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.h in Headers */,
+				F6EF8CEA13F92CF900B20B40 /* SCShareToSoundCloudTitleView.h in Headers */,
 				F6EF8CEC13F92CF900B20B40 /* SCShareViewController.h in Headers */,
 				F6EF8CEE13F92CF900B20B40 /* SCSharingMailPickerController.h in Headers */,
 				F6EF8CF013F92CF900B20B40 /* SCSwitch.h in Headers */,
@@ -373,6 +379,7 @@
 				F6EF8CFD13F92D5E00B20B40 /* SoundCloudUI-Prefix.pch in Headers */,
 				F6F5E4ED13F963B700492B2B /* UIDevie+SoundCloudUI.h in Headers */,
 				F697FF1713FBB68200B9369F /* SCUIErrors.h in Headers */,
+				F6115A4F13FC02AA006489E9 /* SCConnectToSoundCloudTitleView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +450,7 @@
 				F6EF8CE513F92CF900B20B40 /* SCRecordingSaveViewController.m in Sources */,
 				F6EF8CE713F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m in Sources */,
 				F6EF8CE913F92CF900B20B40 /* SCRecordingUploadProgressView.m in Sources */,
-				F6EF8CEB13F92CF900B20B40 /* SCSCRecordingSaveViewControllerTitleView.m in Sources */,
+				F6EF8CEB13F92CF900B20B40 /* SCShareToSoundCloudTitleView.m in Sources */,
 				F6EF8CED13F92CF900B20B40 /* SCShareViewController.m in Sources */,
 				F6EF8CEF13F92CF900B20B40 /* SCSharingMailPickerController.m in Sources */,
 				F6EF8CF113F92CF900B20B40 /* SCSwitch.m in Sources */,
@@ -453,6 +460,7 @@
 				F6EF8CFA13F92CF900B20B40 /* SCUnderlinedButton.m in Sources */,
 				F6F5E4EE13F963B700492B2B /* UIDevie+SoundCloudUI.m in Sources */,
 				F697FF1813FBB68200B9369F /* SCUIErrors.m in Sources */,
+				F6115A5013FC02AA006489E9 /* SCConnectToSoundCloudTitleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

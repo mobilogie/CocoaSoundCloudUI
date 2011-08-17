@@ -1,5 +1,5 @@
 //
-//  SCSCRecordingSaveViewControllerTitleView.h
+//  SCShareToSoundCloudTitleView.h
 //  SoundCloudAPI
 //
 //  Created by Tobias Kräntzer on 28.07.11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCSCRecordingSaveViewControllerTitleView : UIView
+@interface SCShareToSoundCloudTitleView : UIView
 
 @end
