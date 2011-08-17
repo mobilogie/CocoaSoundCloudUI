@@ -71,6 +71,11 @@
 
 - (void)loadURL:(NSURL *)anURL;
 {
+    // WORKAROUD: Remove all Cookies to enable the use of facebook user accounts
+    for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+    }
+    
     NSURL *URLToOpen = [NSURL URLWithString:[[anURL absoluteString] stringByAppendingString:@"&display_bar=false"]];
     [self.webView loadRequest:[NSURLRequest requestWithURL:URLToOpen]];
 }
@@ -88,21 +93,22 @@
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
-{
-    NSURL *callbackURL = [[SCSoundCloud configuration] objectForKey:kSCConfigurationRedirectURL];
-        
-    if ([[request.URL absoluteString] hasPrefix:[callbackURL absoluteString]]) {
-        return [SCSoundCloud handleRedirectURL:request.URL];
+{    
+    switch (navigationType) {
+        case UIWebViewNavigationTypeLinkClicked:
+        {
+            [[UIApplication sharedApplication] openURL:request.URL];
+            return NO;
+        }
+            
+        default:
+        {
+            if ([SCSoundCloud handleRedirectURL:request.URL]) {
+                return NO;
+            }
+            return YES;
+        }
     }
-    
-    NSURL *authURL = [[SCSoundCloud configuration] objectForKey:kSCConfigurationAuthorizeURL];
-
-    if (![[request.URL absoluteString] hasPrefix:[authURL absoluteString]]) {
-        [[UIApplication sharedApplication] openURL:request.URL];
-        return NO;
-    }
-    
-	return YES;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
