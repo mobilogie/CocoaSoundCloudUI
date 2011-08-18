@@ -6,33 +6,29 @@
 //  Copyright 2010 nxtbgthng. All rights reserved.
 //
 
-#import "QuartzCore+SoundCloudAPI.h"
-#import "UIImage+SoundCloudAPI.h"
-#import "SCSwitch.h"
-#import "SCTableCellBackgroundView.h"
-
 #import "JSONKit.h"
+#import "SCAPI.h"
 
-#import "SCSharingMailPickerController.h"
-#import "SCFoursquarePlacePickerController.h"
-#import "SCConstants.h"
-#import "SCAddConnectionViewController.h"
-#import "SCAccount.h"
-#import "SCSoundCloud.h"
-#import "SCRequest.h"
-#import "SCLoginViewController.h"
+#import "UIDevie+SoundCloudUI.h"
+#import "UIColor+SoundCloudAPI.h"
+#import "UIImage+SoundCloudAPI.h"
+#import "QuartzCore+SoundCloudAPI.h"
+
+#import "SCUIErrors.h"
 
 #import "SCBundle.h"
+
+#import "SCSwitch.h"
+
 #import "SCShareToSoundCloudTitleView.h"
 #import "SCRecordingSaveViewControllerHeaderView.h"
 #import "SCRecordingUploadProgressView.h"
 #import "SCLoginView.h"
+#import "SCTableCellBackgroundView.h"
 
-#import "SCUIErrors.h"
-
-#import "UIDevie+SoundCloudUI.h"
-
-#import "UIColor+SoundCloudAPI.h"
+#import "SCSharingMailPickerController.h"
+#import "SCFoursquarePlacePickerController.h"
+#import "SCAddConnectionViewController.h"
 
 #import "SCRecordingSaveViewController.h"
 
@@ -62,6 +58,7 @@
 @property (nonatomic, readwrite, retain) SCAccount *account;
 
 @property (nonatomic, retain) SCFoursquarePlacePickerController *foursquareController;
+@property (nonatomic, retain) UIPopoverController *imagePickerPopoverController;
 
 @property (nonatomic, assign) SCRecordingSaveViewControllerHeaderView *headerView;
 @property (nonatomic, assign) SCRecordingUploadProgressView *uploadProgressView;
@@ -69,12 +66,12 @@
 @property (nonatomic, assign) UIToolbar *toolBar;
 @property (nonatomic, assign) SCLoginView *loginView;
 
-@property (nonatomic, retain) UIPopoverController *imagePickerPopoverController;
-
 @property (nonatomic, copy) SCRecordingSaveViewControllerCompletionHandler completionHandler;
+
 
 #pragma mark UI
 - (void)updateInterface;
+
 
 #pragma mark Actions
 - (IBAction)shareConnectionSwitchToggled:(id)sender;
@@ -155,24 +152,30 @@ const NSArray *allServices = nil;
 @synthesize unconnectedServices;
 @synthesize sharingConnections;
 @synthesize sharingMailAddresses;
+
 @synthesize fileURL;
 @synthesize fileData;
 @synthesize isPrivate;
 @synthesize coverImage;
 @synthesize title;
 @synthesize trackCreationDate;
+
 @synthesize location;
 @synthesize locationTitle;
 @synthesize foursquareID;
+
 @synthesize account;
+
 @synthesize foursquareController;
+@synthesize imagePickerPopoverController;
+
 @synthesize headerView;
 @synthesize uploadProgressView;
-@synthesize completionHandler;
 @synthesize tableView;
 @synthesize toolBar;
 @synthesize loginView;
-@synthesize imagePickerPopoverController;
+
+@synthesize completionHandler;
 
 
 #pragma mark Lifecycle
@@ -324,6 +327,9 @@ const NSArray *allServices = nil;
                              NSLog(@"%s error: %@", __FUNCTION__, [error localizedDescription]);
                          }
                      }];
+        } else {
+            [self.headerView setAvatarImage:nil];
+            [self.headerView setUserName:nil];
         }
     }
 }
@@ -339,7 +345,6 @@ const NSArray *allServices = nil;
         [coverImage release];
         [aCoverImage retain];
         coverImage = aCoverImage;
-        [self.headerView setCoverImage:aCoverImage];
     }
 }
 

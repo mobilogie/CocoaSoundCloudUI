@@ -7,16 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "SCAddConnectionViewControllerDelegate.h"
 
-@class SCSoundCloudAPI;
 @class SCAccount;
 
 @interface SCAddConnectionViewController : UIViewController <UIWebViewDelegate> {
     
     id<SCAddConnectionViewControllerDelegate> delegate;
     
-    SCSoundCloudAPI *api;
     SCAccount *account;
     NSString *service;
     NSURL *authorizeURL;

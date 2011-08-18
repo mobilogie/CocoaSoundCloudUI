@@ -99,7 +99,6 @@
     delegate = nil;
     webView.delegate = nil;
     [authorizeURL release];
-    [api release];
     [service release];
     self.loading = NO;
     [super dealloc];
@@ -213,29 +212,5 @@
     [self.activityIndicator stopAnimating];
 }
 
-
-#pragma mark API Delegate
-
-- (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFinishWithData:(NSData *)data context:(id)context userInfo:(id)userInfo;
-{
-	id result = [data JSONObject];
-    
-    if (![result isKindOfClass:[NSDictionary class]]) return;
-    
-    NSString *URLString = [result objectForKey:@"authorize_url"];
-    
-    if (URLString) self.authorizeURL = [NSURL URLWithString:URLString];
-}
-
-- (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFailWithError:(NSError *)error context:(id)context userInfo:(id)userInfo;
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:SCLocalizedString(@"add_connection_failed", @"Connection failed")
-                                                    message:[error localizedDescription]
-                                                   delegate:nil
-                                          cancelButtonTitle:SCLocalizedString(@"add_connection_ok", @"OK")
-                                          otherButtonTitles:nil];
-    [alert show];
-    [alert release];
-}
 
 @end

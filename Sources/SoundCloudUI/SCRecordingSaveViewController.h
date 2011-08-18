@@ -6,8 +6,7 @@
 //  Copyright 2010 nxtbgthng. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
 
 #import "SCSharingMailPickerController.h"
 #import "SCFoursquarePlacePickerControllerDelegate.h"
