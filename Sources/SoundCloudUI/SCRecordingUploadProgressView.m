@@ -20,6 +20,7 @@
 
 #import "QuartzCore+SoundCloudAPI.h"
 #import "UIImage+SoundCloudAPI.h"
+#import "UIDevie+SoundCloudUI.h"
 
 #import "SCBundle.h"
 
@@ -95,6 +96,12 @@ typedef enum SCRecordingUploadProgressViewState {
     [self.cancelButton setImage:[SCBundle imageWithName:@"cancel_dark"] forState:UIControlStateNormal];
     [self.cancelButton setImage:[SCBundle imageWithName:@"cancelUpload"] forState:UIControlStateHighlighted];
     [self addSubview:self.cancelButton];
+    
+    
+    self.layer.masksToBounds = NO;
+    self.layer.shadowOffset = CGSizeMake(3, 5);
+    self.layer.shadowRadius = 5;
+    self.layer.shadowOpacity = 0.8;
 }
 
 
@@ -159,45 +166,63 @@ typedef enum SCRecordingUploadProgressViewState {
 
 
 #pragma mark View Management
-
+    
 - (void)layoutSubviews;
 {
     [super layoutSubviews];
- 
-//    NSLog(@"%s self.bounds: %@", __FUNCTION__, NSStringFromCGRect(self.bounds));
+    
+    //    NSLog(@"%s self.bounds: %@", __FUNCTION__, NSStringFromCGRect(self.bounds));
+    
+    CGFloat spacing;
+    
+    if ([UIDevice isIPad]) {
+        spacing = 20.0;
+    } else {
+        spacing = SPACING;
+    }
+    
     
     if (self.coverImageView.image) {
-        self.coverImageView.frame = CGRectMake(SPACING, SPACING, COVER_IMAGE_SIZE, COVER_IMAGE_SIZE);
         
-        CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds) - 2 * SPACING - CGRectGetMaxX(self.coverImageView.frame),
-                                    COVER_IMAGE_SIZE);
+        CGFloat imageSize;
+        
+        if ([UIDevice isIPad]) {
+            imageSize = 80;
+        } else {
+            imageSize = COVER_IMAGE_SIZE;
+        }
+        
+        self.coverImageView.frame = CGRectMake(spacing, spacing, imageSize, imageSize);
+        
+        CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds) - 2 * spacing - CGRectGetMaxX(self.coverImageView.frame),
+                                    imageSize);
         CGSize textSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font
                                            constrainedToSize:maxSize
                                                lineBreakMode:self.titleLabel.lineBreakMode];
         
-        self.titleLabel.frame = CGRectMake(CGRectGetMaxX(self.coverImageView.frame) + SPACING,
-                                           SPACING,
+        self.titleLabel.frame = CGRectMake(CGRectGetMaxX(self.coverImageView.frame) + spacing,
+                                           spacing,
                                            textSize.width,
                                            textSize.height);
-
+        
     } else {
-        CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds) - 2 * SPACING,
+        CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds) - 2 * spacing,
                                     COVER_IMAGE_SIZE);
         CGSize textSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font
                                            constrainedToSize:maxSize
                                                lineBreakMode:self.titleLabel.lineBreakMode];
         
-        self.titleLabel.frame = CGRectMake(SPACING,
-                                           SPACING,
+        self.titleLabel.frame = CGRectMake(spacing,
+                                           spacing,
                                            textSize.width,
                                            textSize.height);
     }
     
     
-    self.line.frame = CGRectMake(SPACING,
+    self.line.frame = CGRectMake(spacing,
                                  MAX(CGRectGetMaxY(self.titleLabel.frame),
-                                     CGRectGetMaxY(self.coverImageView.frame)) + SPACING,
-                                 CGRectGetWidth(self.bounds) - 2 * SPACING,
+                                     CGRectGetMaxY(self.coverImageView.frame)) + spacing,
+                                 CGRectGetWidth(self.bounds) - 2 * spacing,
                                  1);
     
     switch (self.state) {
@@ -206,30 +231,31 @@ typedef enum SCRecordingUploadProgressViewState {
         {
             self.successImageView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMaxY(self.line.frame) + SPACING + CGRectGetHeight(self.successImageView.frame) / 2.0);
             
-            self.successLabel.frame = CGRectMake(SPACING, CGRectGetMaxY(self.successImageView.frame) + SPACING, CGRectGetWidth(self.bounds) - 2 * SPACING, CGRectGetHeight(self.successLabel.frame));
+            self.successLabel.frame = CGRectMake(spacing, CGRectGetMaxY(self.successImageView.frame) + SPACING, CGRectGetWidth(self.bounds) - 2 * spacing, CGRectGetHeight(self.successLabel.frame));
             
             CGRect frame = self.frame;
-            frame.size.height = CGRectGetMaxY(self.successLabel.frame) + SPACING;
+            frame.size.height = CGRectGetMaxY(self.successLabel.frame) + spacing;
             self.frame = frame;
             break;
         }
-
+            
         default:
         {
-            self.cancelButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - SPACING - 30, CGRectGetMaxY(self.line.frame) + SPACING, 30, 30);
+            self.cancelButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - spacing - 30, CGRectGetMaxY(self.line.frame) + spacing, 30, 30);
             
-            self.progressLabel.frame = CGRectMake(SPACING, CGRectGetMaxY(self.line.frame) + SPACING, 0, 0);
+            self.progressLabel.frame = CGRectMake(spacing, CGRectGetMaxY(self.line.frame) + spacing, 0, 0);
             [self.progressLabel sizeToFit];
             
-            self.progressView.frame = CGRectMake(SPACING, CGRectGetMaxY(self.progressLabel.frame) + 6, CGRectGetWidth(self.bounds) - 30 - 3 * SPACING, 10);
+            self.progressView.frame = CGRectMake(spacing, CGRectGetMaxY(self.progressLabel.frame) + 6, CGRectGetWidth(self.bounds) - 30 - 3 * spacing, 10);
             
             CGRect frame = self.frame;
-            frame.size.height = CGRectGetMaxY(self.progressView.frame) + SPACING;
+            frame.size.height = CGRectGetMaxY(self.progressView.frame) + spacing;
             self.frame = frame;
             break;
         }
             break;
     }
 }
+
 
 @end

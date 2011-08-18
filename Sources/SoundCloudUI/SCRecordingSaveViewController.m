@@ -1211,7 +1211,14 @@ const NSArray *allServices = nil;
         [self.uploadProgressView removeFromSuperview];
     }
     
-    self.uploadProgressView = [[[SCRecordingUploadProgressView alloc] initWithFrame:CGRectMake(26, 58, CGRectGetWidth(self.view.bounds) - 52, CGRectGetHeight(self.view.bounds) - 26 - 58)] autorelease];
+    CGRect progressViewRect = CGRectZero;
+    if ([UIDevice isIPad]) {
+        progressViewRect = CGRectMake(62, 68, CGRectGetWidth(self.view.bounds) - 124, CGRectGetHeight(self.view.bounds) - 26 - 58);
+    } else {
+        progressViewRect = CGRectMake(26, 58, CGRectGetWidth(self.view.bounds) - 52, CGRectGetHeight(self.view.bounds) - 26 - 58);
+    }
+    
+    self.uploadProgressView = [[[SCRecordingUploadProgressView alloc] initWithFrame:progressViewRect] autorelease];
     [self.view insertSubview:self.uploadProgressView belowSubview:self.toolBar];
     
     [self.uploadProgressView setTitle:[self generatedTitle]];
