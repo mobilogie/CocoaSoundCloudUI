@@ -271,9 +271,13 @@
                                                 fontSize);
     }
     
+    
+    
     CGRect logoutButtonFrame = CGRectZero;
-    logoutButtonFrame.size = [self.logoutButton.titleLabel.text sizeWithFont:self.logoutButton.titleLabel.font];
-    logoutButtonFrame.origin = CGPointMake(CGRectGetMaxX(self.logoutSeparator.frame) + SPACING, SPACING);
+    if (self.logoutButton.titleLabel.text) {
+        logoutButtonFrame.size = [self.logoutButton.titleLabel.text sizeWithFont:self.logoutButton.titleLabel.font];
+        logoutButtonFrame.origin = CGPointMake(CGRectGetMaxX(self.logoutSeparator.frame) + SPACING, SPACING);
+    }
     self.logoutButton.frame = logoutButtonFrame;
     
     self.firstHR.frame = CGRectMake(0, CGRectGetMaxY(self.avatarImageView.frame) + SPACING, CGRectGetWidth(self.bounds), 2.0);

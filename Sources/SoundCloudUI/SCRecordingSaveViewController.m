@@ -367,6 +367,7 @@ const NSArray *allServices = nil;
         [coverImage release];
         [aCoverImage retain];
         coverImage = aCoverImage;
+        [self.headerView setCoverImage:aCoverImage];
     }
 }
 
