@@ -516,7 +516,7 @@
 				GCC_PREFIX_HEADER = "Sources/SoundCloudUI-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"../JSONKit/**",
-					"../SoundCloudAPI/**",
+					"../../**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,7 +532,7 @@
 				GCC_PREFIX_HEADER = "Sources/SoundCloudUI-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"../JSONKit/**",
-					"../SoundCloudAPI/**",
+					"../../**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
