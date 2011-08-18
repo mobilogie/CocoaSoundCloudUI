@@ -768,6 +768,9 @@ const NSArray *allServices = nil;
 {
     NSString *text = [self tableView:aTableView titleForHeaderInSection:section];
     
+    if (!text)
+        return nil;
+    
     CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:15.0]
                        constrainedToSize:CGSizeMake(CGRectGetWidth(self.tableView.bounds) - 2 * [self cellMargin], CGFLOAT_MAX)
                            lineBreakMode:UILineBreakModeWordWrap];
@@ -790,6 +793,9 @@ const NSArray *allServices = nil;
 - (CGFloat)tableView:(UITableView *)aTableView heightForHeaderInSection:(NSInteger)section;
 {
     NSString *text = [self tableView:aTableView titleForHeaderInSection:section];
+    
+    if (!text)
+        return 0;
     
     CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:15.0]
                        constrainedToSize:CGSizeMake(CGRectGetWidth(self.tableView.bounds) - 2 * [self cellMargin], CGFLOAT_MAX)
@@ -816,6 +822,8 @@ const NSArray *allServices = nil;
 - (UIView *)tableView:(UITableView *)aTableView viewForFooterInSection:(NSInteger)section;
 {
     if (isPrivate) {
+        return nil;
+    } else if (self.loadingConnections) {
         return nil;
     } else {
         UIView *footerView = [[[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.tableView.bounds), 20.0)] autorelease];
