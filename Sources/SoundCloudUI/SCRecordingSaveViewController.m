@@ -56,6 +56,7 @@
 @property (nonatomic, retain) NSArray *unconnectedServices;
 @property (nonatomic, retain) NSArray *sharingConnections;
 @property (nonatomic, retain) NSArray *sharingMailAddresses;
+@property (nonatomic, assign) BOOL loadingConnections;
 
 @property (nonatomic, retain) NSURL *fileURL;
 @property (nonatomic, retain) NSData *fileData;
@@ -165,6 +166,7 @@ const NSArray *allServices = nil;
 @synthesize unconnectedServices;
 @synthesize sharingConnections;
 @synthesize sharingMailAddresses;
+@synthesize loadingConnections;
 
 @synthesize fileURL;
 @synthesize fileData;
@@ -299,6 +301,9 @@ const NSArray *allServices = nil;
  
         if (self.account) {
             
+            loadingConnections = YES;
+            [self.tableView reloadData];
+            
             [SCRequest performMethod:SCRequestMethodGET
                           onResource:[NSURL URLWithString:@"https://api.soundcloud.com/me/connections.json"]
                      usingParameters:nil
@@ -309,6 +314,7 @@ const NSArray *allServices = nil;
                              NSError *jsonError = nil;
                              NSArray *result = [data objectFromJSONData];
                              if (result) {
+                                 loadingConnections = NO;
                                  [self setAvailableConnections:result];
                              } else {
                                  NSLog(@"%s json error: %@", __FUNCTION__, [jsonError localizedDescription]);
@@ -604,8 +610,10 @@ const NSArray *allServices = nil;
 #pragma mark TableView
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section;
-{
+{    
     if (isPrivate){
+        return 1;
+    } else if (self.loadingConnections) {
         return 1;
     } else {
         return self.availableConnections.count + self.unconnectedServices.count;
@@ -642,6 +650,29 @@ const NSArray *allServices = nil;
 
         [(SCTableCellBackgroundView *)cell.backgroundView setPosition:[aTableView cellPositionForIndexPath:indexPath]];
         
+        return cell;
+        
+    } else if (self.loadingConnections) {
+        UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:@"loading"];
+        if (!cell) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"loading"] autorelease];
+            SCTableCellBackgroundView *backgroundView = [[[SCTableCellBackgroundView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.tableView.bounds), 44.0)] autorelease];
+            backgroundView.opaque = NO;
+            backgroundView.backgroundColor = [UIColor clearColor];
+            backgroundView.borderColor = [UIColor clearColor];
+            
+            UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            activityIndicatorView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
+            activityIndicatorView.center = CGPointMake(backgroundView.bounds.size.width / 2.0, backgroundView.bounds.size.height / 2.0);
+            [activityIndicatorView startAnimating];
+            [backgroundView addSubview:activityIndicatorView];
+            [activityIndicatorView release];
+
+            cell.backgroundView = backgroundView;
+            cell.backgroundColor = [UIColor clearColor];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+        }
         return cell;
         
     } else {
@@ -725,6 +756,8 @@ const NSArray *allServices = nil;
     if (self.isPrivate) {
         // TODO: Insert correct text describing the private options
         return SCLocalizedString(@"sc_upload_sharing_options_private", @"Your track will be private after the upload. You want to share it with others?");
+    } else if (loadingConnections) {
+        return nil;
     } else {
         return SCLocalizedString(@"sc_upload_sharing_options_public", @"Your track will be available for the public after the upload. You want to push it to other services afterwards?");
     }
@@ -767,6 +800,8 @@ const NSArray *allServices = nil;
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
 {
     if (isPrivate) {
+        return nil;
+    } else if (loadingConnections) {
         return nil;
     } else {
         if (availableConnections.count == 0) {
@@ -818,6 +853,8 @@ const NSArray *allServices = nil;
             
             [aTableView deselectRowAtIndexPath:indexPath animated:YES];
         }
+    } else if (self.loadingConnections) {
+        // ...
     } else {
         if (indexPath.row >= availableConnections.count) {
             NSDictionary *service = [unconnectedServices objectAtIndex:indexPath.row - availableConnections.count];
