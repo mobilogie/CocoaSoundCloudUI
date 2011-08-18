@@ -20,6 +20,7 @@
 
 #import "JSONKit.h"
 #import "SCAPI.h"
+#import "SCAccount+Private.h"
 
 #import "UIDevie+SoundCloudUI.h"
 #import "UIColor+SoundCloudAPI.h"
@@ -297,10 +298,11 @@ const NSArray *allServices = nil;
         account = anAccount;
  
         if (self.account) {
+            
             [SCRequest performMethod:SCRequestMethodGET
                           onResource:[NSURL URLWithString:@"https://api.soundcloud.com/me/connections.json"]
                      usingParameters:nil
-                         withAccount:self.account
+                         withAccount:anAccount
               sendingProgressHandler:nil
                      responseHandler:^(NSURLResponse *response, NSData *data, NSError *error){
                          if (data) {
@@ -319,13 +321,15 @@ const NSArray *allServices = nil;
             [SCRequest performMethod:SCRequestMethodGET
                           onResource:[NSURL URLWithString:@"https://api.soundcloud.com/me.json"]
                      usingParameters:nil
-                         withAccount:self.account
+                         withAccount:anAccount
               sendingProgressHandler:nil
                      responseHandler:^(NSURLResponse *response, NSData *data, NSError *error){
                          if (data) {
                              NSError *jsonError = nil;
                              id result = [data objectFromJSONData];
                              if (result) {
+                                 
+                                 anAccount.userInfo = result;
                                  
                                  NSURL *avatarURL = [NSURL URLWithString:[result objectForKey:@"avatar_url"]];
                                  NSData *avatarData = [NSData dataWithContentsOfURL:avatarURL];
@@ -539,7 +543,15 @@ const NSArray *allServices = nil;
     [tableView reloadData];
     [self updateInterface];
     
-    if (!self.account) {
+    if (self.account) {
+        NSDictionary *userInfo = self.account.userInfo;
+        if (userInfo) {
+            NSURL *avatarURL = [NSURL URLWithString:[userInfo objectForKey:@"avatar_url"]];
+            NSData *avatarData = [NSData dataWithContentsOfURL:avatarURL];
+            [self.headerView setAvatarImage:[UIImage imageWithData:avatarData]];
+            [self.headerView setUserName:[userInfo objectForKey:@"username"]];
+        }
+    } else {
         [self showLoginView:NO];
         [self relogin];
     }
