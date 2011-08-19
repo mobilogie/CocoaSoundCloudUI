@@ -125,7 +125,15 @@ typedef enum SCRecordingUploadProgressViewState {
 
 - (void)setCoverImage:(UIImage *)aCoverImage;
 {
-    self.coverImageView.image = [aCoverImage imageByResizingTo:CGSizeMake(COVER_IMAGE_SIZE, COVER_IMAGE_SIZE) forRetinaDisplay:YES];
+    CGFloat imageSize;
+    
+    if ([UIDevice isIPad]) {
+        imageSize = 80;
+    } else {
+        imageSize = COVER_IMAGE_SIZE;
+    }
+    
+    self.coverImageView.image = [aCoverImage imageByResizingTo:CGSizeMake(imageSize, imageSize) forRetinaDisplay:YES];
     [self.coverImageView sizeToFit];
     [self setNeedsLayout];
     
