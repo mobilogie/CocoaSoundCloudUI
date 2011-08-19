@@ -67,7 +67,7 @@ typedef enum SCRecordingUploadProgressViewState {
 - (void)commonAwake;
 {
     self.backgroundColor = [UIColor whiteColor];
-//    self.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    self.autoresizingMask = (UIViewAutoresizingFlexibleWidth);
     
     self.coverImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
     [self addSubview:self.coverImageView];

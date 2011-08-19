@@ -762,7 +762,7 @@ const NSArray *allServices = nil;
     } else if (loadingConnections) {
         return nil;
     } else {
-        return SCLocalizedString(@"sc_upload_sharing_options_public", @"Your track will be available for the public after the upload. You want to push it to other services afterwards?");
+        return SCLocalizedString(@"sc_upload_sharing_options_public", @"Your sound will be shared to SoundCloud. Where else would you like to share it?");
     }
 }
 
@@ -1501,10 +1501,10 @@ const NSArray *allServices = nil;
     
     switch ([components weekday]) {
         case 1:
-            weekday = SCLocalizedString(@"recording_weekday_sunday", @"Sunday");
+            weekday = SCLocalizedString(@"weekday_sunday", @"Sunday");
             break;
         case 2:
-            weekday = SCLocalizedString(@"recording_weekday_monday", @"Monday");
+            weekday = SCLocalizedString(@"weekday_monday", @"Monday");
             break;
         case 3:
             weekday = SCLocalizedString(@"weekday_tuesday", @"Tuesday");

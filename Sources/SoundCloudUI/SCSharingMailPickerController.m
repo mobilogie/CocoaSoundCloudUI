@@ -218,7 +218,7 @@
     
     // Input Label
 	self.inputLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-	self.inputLabel.text = @"To:";
+	self.inputLabel.text = SCLocalizedString(@"shared_to_to", @"To:");
 	self.inputLabel.textColor = [UIColor darkGrayColor];
     self.inputLabel.backgroundColor = [UIColor clearColor];
 
