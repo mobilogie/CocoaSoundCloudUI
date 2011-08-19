@@ -123,6 +123,8 @@
 - (NSString *)generatedSharingNote;
 - (NSString *)dateString;
 - (float)cellMargin;
+
+- (UIImage *)cropImage:(NSDictionary*)assets;
 @end
 
 
@@ -963,28 +965,9 @@ const NSArray *allServices = nil;
 
 #pragma mark Image Picker Delegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo;
-{
-    UIImage *actualImage = image;
-    if (!CGSizeEqualToSize(actualImage.size, CGSizeMake(COVER_WIDTH, COVER_WIDTH))) {
-        
-        // Cropping
-        CGRect editRect = [[editingInfo objectForKey:UIImagePickerControllerCropRect] CGRectValue];
-        CGFloat width = MIN(CGRectGetWidth(editRect), CGRectGetHeight(editRect));
-        CGRect croppedRect = CGRectMake(CGRectGetMidX(editRect), CGRectGetMidY(editRect), 0, 0);
-        croppedRect = CGRectInset(croppedRect, width / -2.0, width / -2.0);
-        
-        UIImage *origImage = [editingInfo objectForKey:UIImagePickerControllerOriginalImage];
-        
-        CGImageRef croppedImageRef = CGImageCreateWithImageInRect(origImage.CGImage, croppedRect);
-        UIImage *croppedImage = [UIImage imageWithCGImage:croppedImageRef];
-        CGImageRelease(croppedImageRef);
-        
-        // Rezising
-        actualImage = [croppedImage imageByResizingTo:CGSizeMake(COVER_WIDTH, COVER_WIDTH)];
-    }
-    
-    self.coverImage = actualImage;
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info;
+{     
+    self.coverImage = [self cropImage:info];
     
     if (self.imagePickerPopoverController) {
         [self.imagePickerPopoverController dismissPopoverAnimated:YES];
@@ -1560,6 +1543,81 @@ const NSArray *allServices = nil;
     } else {
         return 9.0;
     }
+}
+
+// Inspired by http://www.gotow.net/creative/wordpress/?p=64
+
+- (UIImage *)cropImage:(NSDictionary*)editInfo;
+{
+    CGRect editCropRect = [[editInfo valueForKey:UIImagePickerControllerCropRect] CGRectValue]; 
+    
+    // Determine original image orientation and size
+    UIImage *originalImage = [editInfo valueForKey:UIImagePickerControllerOriginalImage];
+    UIImageOrientation originalOrientation = originalImage.imageOrientation;
+
+    CGImageRef ref = originalImage.CGImage;
+    CGSize refImageSize = CGSizeMake(CGImageGetWidth(ref), CGImageGetHeight(ref));
+    
+    
+    CGRect newEditCropRect = editCropRect;
+    
+    // Modify crop rect to reflect image orientation
+    switch (originalOrientation) {
+        case UIImageOrientationDown:
+            newEditCropRect.origin.x = refImageSize.width - (editCropRect.size.width + editCropRect.origin.x);
+            newEditCropRect.origin.y = refImageSize.height - (editCropRect.size.height + editCropRect.origin.y);
+            break;
+            
+        case UIImageOrientationRight:
+            newEditCropRect.origin.x = editCropRect.origin.y;
+            newEditCropRect.origin.y = refImageSize.height - (editCropRect.origin.x + editCropRect.size.width);
+            newEditCropRect.size.width = editCropRect.size.height;
+            newEditCropRect.size.height = editCropRect.size.width;
+            break;
+            
+        case UIImageOrientationLeft:
+            newEditCropRect.origin.x = refImageSize.width - (editCropRect.origin.y + editCropRect.size.height);
+            newEditCropRect.origin.y = editCropRect.origin.x;
+            newEditCropRect.size.width = editCropRect.size.height;
+            newEditCropRect.size.height = editCropRect.size.width;
+            break;
+            
+        default:
+            break;
+    }
+    
+    // Make the damn thing square if it's ALMOST square
+    CGFloat maxSize = MIN(refImageSize.width, refImageSize.height);
+    CGFloat width = MIN(CGRectGetWidth(newEditCropRect), CGRectGetHeight(newEditCropRect));
+    width = MIN(maxSize, width);
+    
+    editCropRect = CGRectMake(CGRectGetMidX(newEditCropRect), CGRectGetMidY(newEditCropRect), 0, 0);
+    editCropRect = CGRectInset(editCropRect, -1 * (width / 2.0), -1 * (width / 2.0));
+    
+    
+    // Make sure the edit crop rect is in the bounds of the image.
+    if (CGRectGetMinX(editCropRect) < 0) {
+        editCropRect.origin.x = 0;
+    } else if (CGRectGetMaxX(editCropRect) - refImageSize.width > 0) {
+        editCropRect.origin.x -= CGRectGetMaxX(editCropRect) - refImageSize.width;
+    }
+    
+    if (CGRectGetMinY(editCropRect) < 0) {
+        editCropRect.origin.y = 0;
+    } else if (CGRectGetMaxY(editCropRect) - refImageSize.height > 0) {
+        editCropRect.origin.y -= CGRectGetMaxY(editCropRect) - refImageSize.height;
+    }
+    
+    // Crop image using crop rect
+    CGImageRef image = CGImageCreateWithImageInRect(ref, editCropRect);
+    UIImage* cropedImage = [UIImage imageWithCGImage:image];
+    CGImageRelease(ref);
+    
+    // Perform image rotation
+    UIImage *scaledImage = [cropedImage imageByResizingTo:CGSizeMake(COVER_WIDTH, COVER_WIDTH)];
+    UIImage *finalImage = [scaledImage imagebyRotationToOrientation:originalOrientation];
+    
+    return finalImage;
 }
 
 @end

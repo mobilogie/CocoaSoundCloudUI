@@ -19,4 +19,6 @@
 - (UIImage *)imageByResizingTo:(CGSize)newSize;
 - (UIImage *)imageByResizingTo:(CGSize)newSize forRetinaDisplay:(BOOL)forRetinaDisplay;
 
+- (UIImage *)imagebyRotationToOrientation:(UIImageOrientation)orient;
+
 @end
