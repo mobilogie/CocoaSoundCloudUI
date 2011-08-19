@@ -1321,7 +1321,6 @@ const NSArray *allServices = nil;
 
 - (IBAction)relogin;
 {
-    [SCSoundCloud removeAccess];
     self.account = nil;
     [self showLoginView:YES];
     [SCSoundCloud requestAccessWithPreparedAuthorizationURLHandler:^(NSURL *preparedURL){
