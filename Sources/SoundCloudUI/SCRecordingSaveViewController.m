@@ -82,6 +82,8 @@
 
 @property (nonatomic, copy) SCRecordingSaveViewControllerCompletionHandler completionHandler;
 
+@property (nonatomic, retain) id uploadRequestHandler;
+
 
 #pragma mark UI
 - (void)updateInterface;
@@ -99,6 +101,7 @@
 - (IBAction)upload;
 - (IBAction)cancel;
 - (IBAction)relogin;
+- (IBAction)close;
 
 
 #pragma mark Notification Handling
@@ -193,6 +196,8 @@ const NSArray *allServices = nil;
 @synthesize loginView;
 
 @synthesize completionHandler;
+
+@synthesize uploadRequestHandler;
 
 
 #pragma mark Lifecycle
@@ -1183,8 +1188,11 @@ const NSArray *allServices = nil;
 }
 
 - (IBAction)upload;
-{    
-    [self hideToolBar];
+{   
+    NSMutableArray *toolbarItems = [self.toolBar.items mutableCopy];
+    [toolbarItems removeLastObject];
+    self.toolBar.items = toolbarItems;
+    [toolbarItems release];
     
     // setup progress view
     self.tableView.hidden = YES;
@@ -1206,10 +1214,6 @@ const NSArray *allServices = nil;
     
     [self.uploadProgressView setTitle:[self generatedTitle]];
     [self.uploadProgressView setCoverImage:self.coverImage];
-    
-    [self.uploadProgressView.cancelButton addTarget:self
-                                             action:@selector(cancel)
-                                   forControlEvents:UIControlEventTouchUpInside];
     
     
     // set up request
@@ -1270,52 +1274,74 @@ const NSArray *allServices = nil;
     
     
     // perform request
-    [SCRequest performMethod:SCRequestMethodPOST
-                  onResource:[NSURL URLWithString:@"https://api.soundcloud.com/tracks.json"]
-             usingParameters:parameters
-                 withAccount:self.account
-      sendingProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal){self.uploadProgressView.progressView.progress = (float)bytesSend / bytesTotal;}
-             responseHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-                 if (data) {
-                     NSError *jsonError = nil;
-                     id result = [data objectFromJSONData]; //[NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-                     if (result) {
-                         
-                         [self.uploadProgressView setSuccess:YES];
-                         
-                         double delayInSeconds = 1.0;
-                         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                             if (self.completionHandler) {
-                                 self.completionHandler(result, nil);
-                             }
-                             [self.parentViewController dismissModalViewControllerAnimated:YES];
-                         });
-                     } else {
-                         NSLog(@"Upload failed with json error: %@", [jsonError localizedDescription]);
-                         
-                         [self.uploadProgressView setSuccess:NO];
-                         UIBarButtonItem *button = [self.toolBar.items lastObject];
-                         [self showToolBar];
-                         button.title = SCLocalizedString(@"retry_upload", @"Retry upload");
-                     }
-                 } else {
-                     NSLog(@"Upload failed with error: %@", [error localizedDescription]);
-                     
-                     [self.uploadProgressView setSuccess:NO];
-                     UIBarButtonItem *button = [self.toolBar.items lastObject];
-                     [self showToolBar];
-                     button.title = SCLocalizedString(@"retry_upload", @"Retry upload");
-                 }
-             }];
+    self.uploadRequestHandler = [SCRequest performMethod:SCRequestMethodPOST
+                                              onResource:[NSURL URLWithString:@"https://api.soundcloud.com/tracks.json"]
+                                         usingParameters:parameters
+                                             withAccount:self.account
+                                  sendingProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal){self.uploadProgressView.progressView.progress = (float)bytesSend / bytesTotal;}
+                                         responseHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+                                             
+                                             self.uploadRequestHandler = nil;
+                                             
+                                             NSError *jsonError = nil;
+                                             id result = [data objectFromJSONData]; //[NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+                                             
+                                             if (error || jsonError || result == nil) {
+                                                 
+                                                 // Handle Error
+                                                 
+                                                 if (error)
+                                                     NSLog(@"Upload failed with error: %@", [error localizedDescription]);
+                                                 
+                                                 if (jsonError)
+                                                     NSLog(@"Upload failed with json error: %@", [jsonError localizedDescription]);
+                                                 
+                                                 self.uploadProgressView.state = SCRecordingUploadProgressViewStateFailed;
+                                                 
+                                                 // update tool bar
+                                                 NSMutableArray *toolbarItems = [self.toolBar.items mutableCopy];
+                                                 [toolbarItems addObject:[[[UIBarButtonItem alloc] initWithTitle:SCLocalizedString(@"retry_upload", @"Retry")
+                                                                                                           style:UIBarButtonItemStyleBordered
+                                                                                                          target:self
+                                                                                                          action:@selector(upload)] autorelease]];
+                                                 self.toolBar.items = toolbarItems;
+                                                 [toolbarItems release];
+
+                                             } else {
+                                                 
+                                                 // Call the completion handler
+                                                 if (self.completionHandler) {
+                                                     self.completionHandler(result, nil);
+                                                 }
+                                                 
+                                                 // update upload progress view
+                                                 [self.uploadProgressView setTrackInfo:result];
+                                                 self.uploadProgressView.state = SCRecordingUploadProgressViewStateSuccess;
+
+                                                 // update tool bar
+                                                 NSMutableArray *toolbarItems = [NSMutableArray arrayWithCapacity:2];
+                                                 [toolbarItems addObject:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease]];
+                                                 [toolbarItems addObject:[[UIBarButtonItem alloc] initWithTitle:SCLocalizedString(@"done", @"Done")
+                                                                                                          style:UIBarButtonItemStyleBordered
+                                                                                                         target:self action:@selector(close)]];
+                                                 [self.toolBar setItems:toolbarItems animated:YES];
+                                            }
+                                         }];
 }
 
 - (IBAction)cancel;
 {
+    // Cancel running upload request
+    [SCRequest cancelRequest:self.uploadRequestHandler];
+    self.uploadRequestHandler = nil;
+    
+    // Call complettion handler
     if (self.completionHandler) {
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"Canceled by user." forKey:NSLocalizedDescriptionKey];
         self.completionHandler(nil, [NSError errorWithDomain:SCUIErrorDomain code:SCUICanceledErrorCode userInfo:userInfo]);
     }
+    
+    // Dismiss modal view
     [self.parentViewController dismissModalViewControllerAnimated:YES];
 }
 
@@ -1328,6 +1354,10 @@ const NSArray *allServices = nil;
     }];
 }
 
+- (IBAction)close;
+{
+    [self.parentViewController dismissModalViewControllerAnimated:YES];
+}
 
 #pragma mark Notification Handling
 

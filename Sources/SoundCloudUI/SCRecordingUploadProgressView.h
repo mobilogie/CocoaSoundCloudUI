@@ -20,12 +20,21 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    SCRecordingUploadProgressViewStateUploading = 0,
+    SCRecordingUploadProgressViewStateSuccess,
+    SCRecordingUploadProgressViewStateFailed
+} SCRecordingUploadProgressViewState;
+
+@class SCRecordingUploadProgressView;
+
 @interface SCRecordingUploadProgressView : UIView
+
 @property (nonatomic, readonly, assign) UIProgressView *progressView;
-@property (nonatomic, readonly, assign) UIButton *cancelButton;
+@property (nonatomic, readwrite, assign) SCRecordingUploadProgressViewState state;
 
 - (void)setTitle:(NSString *)aTitle;
 - (void)setCoverImage:(UIImage *)aCoverImage;
-- (void)setSuccess:(BOOL)success;
+- (void)setTrackInfo:(NSDictionary *)aTrackInfo;
 
 @end

@@ -12,6 +12,8 @@
 
 "cancel" = "Cancel";
 
+"close" = "Close";
+
 "upload_and_share" = "Upload & Share";
 
 "sc_upload_with_access" = "With Access";
@@ -88,6 +90,9 @@
 
 "timeframe_night" = "night";
 
+"open_soundcloud_app" = "Open Track in SoundCloud App";
+
+"download_soundcloud_app" = "Get SoundCloud App";
 
 "service_facebook" = "Facebook";
 

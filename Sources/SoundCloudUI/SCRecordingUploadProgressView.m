@@ -29,11 +29,6 @@
 #define SPACING 10.0
 #define COVER_IMAGE_SIZE 40
 
-typedef enum SCRecordingUploadProgressViewState {
-    SCRecordingUploadProgressViewStateUploading = 0,
-    SCRecordingUploadProgressViewStateSuccess,
-    SCRecordingUploadProgressViewStateFail
-} SCRecordingUploadProgressViewState;
 
 @interface SCRecordingUploadProgressView ()
 - (void)commonAwake;
@@ -43,12 +38,16 @@ typedef enum SCRecordingUploadProgressViewState {
 @property (nonatomic, readwrite, assign) UIView *line;
 @property (nonatomic, readwrite, assign) UILabel *progressLabel;
 @property (nonatomic, readwrite, assign) UIProgressView *progressView;
-@property (nonatomic, readwrite, assign) UIButton *cancelButton;
+@property (nonatomic, readwrite, assign) UIButton *openTrackButton;
+@property (nonatomic, readwrite, retain) NSDictionary *trackInfo;
 
-@property (nonatomic, readwrite, assign) UIImageView *successImageView;
-@property (nonatomic, readwrite, assign) UILabel *successLabel;
 
-@property (nonatomic, readwrite, assign) SCRecordingUploadProgressViewState state;
+#pragma mark Actions
+- (void)openTrackButtonPressed;
+
+#pragma mark Helpers
+- (NSURL *)appURL;
+- (NSURL *)appStoreURL;
 
 @end
 
@@ -66,23 +65,30 @@ typedef enum SCRecordingUploadProgressViewState {
 
 - (void)commonAwake;
 {
+    self.state = SCRecordingUploadProgressViewStateUploading;
+    
+    // Background Color
     self.backgroundColor = [UIColor whiteColor];
     self.autoresizingMask = (UIViewAutoresizingFlexibleWidth);
     
-    self.coverImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
+    // Cover Image
+    self.coverImageView = [[[UIImageView alloc] initWithFrame:CGRectZero] autorelease];
     [self addSubview:self.coverImageView];
     
-    self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
+    // Title
+    self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
     self.titleLabel.numberOfLines = 2;
     self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.titleLabel.text = nil;
     self.titleLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
     [self addSubview:self.titleLabel];
     
-    self.line = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)] autorelease];
+    // HR
+    self.line = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
     self.line.backgroundColor = [UIColor colorWithWhite:0.949 alpha:1.0];
     [self addSubview:self.line];
     
+    // Progress
     self.progressLabel = [[[UILabel alloc] init] autorelease];
     self.progressLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
     self.progressLabel.text = SCLocalizedString(@"record_save_uploading", @"Uploading ...");
@@ -92,12 +98,13 @@ typedef enum SCRecordingUploadProgressViewState {
     self.progressView.progress = 0;
     [self addSubview:self.progressView];
     
-    self.cancelButton = [[[UIButton alloc] init] autorelease];
-    [self.cancelButton setImage:[SCBundle imageWithName:@"cancel_dark"] forState:UIControlStateNormal];
-    [self.cancelButton setImage:[SCBundle imageWithName:@"cancelUpload"] forState:UIControlStateHighlighted];
-    [self addSubview:self.cancelButton];
+    // Open Track Button
+    self.openTrackButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.openTrackButton.hidden = YES;
+    [self.openTrackButton addTarget:self action:@selector(openTrackButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.openTrackButton];
     
-    
+    // Shadow
     self.layer.masksToBounds = NO;
     self.layer.shadowOffset = CGSizeMake(3, 5);
     self.layer.shadowRadius = 5;
@@ -112,10 +119,33 @@ typedef enum SCRecordingUploadProgressViewState {
 @synthesize line;
 @synthesize progressLabel;
 @synthesize progressView;
-@synthesize cancelButton;
-@synthesize successImageView;
-@synthesize successLabel;
+@synthesize openTrackButton;
 @synthesize state;
+@synthesize trackInfo;
+
+- (void)setState:(SCRecordingUploadProgressViewState)aState;
+{
+    if (state != aState) {
+        state = aState;
+        
+        switch (state) {
+            case SCRecordingUploadProgressViewStateFailed:
+            {
+                self.progressLabel.text = SCLocalizedString(@"record_save_upload_fail", @"Ok, that went wrong.");
+                break;
+            }
+            
+            case SCRecordingUploadProgressViewStateSuccess:
+                self.progressLabel.text = SCLocalizedString(@"record_save_upload_success", @"Yay, that worked!");
+                break;
+                
+            default:
+                self.progressLabel.text = SCLocalizedString(@"record_save_uploading", @"Uploading ...");
+                break;
+        }
+        [self setNeedsLayout];
+    }
+}
 
 - (void)setTitle:(NSString *)aTitle;
 {
@@ -136,51 +166,25 @@ typedef enum SCRecordingUploadProgressViewState {
     self.coverImageView.image = [aCoverImage imageByResizingTo:CGSizeMake(imageSize, imageSize) forRetinaDisplay:YES];
     [self.coverImageView sizeToFit];
     [self setNeedsLayout];
-    
 }
 
-- (void)setSuccess:(BOOL)success;
+- (void)setTrackInfo:(NSDictionary *)aTrackInfo;
 {
-    self.state = SCRecordingUploadProgressViewStateSuccess;
-    
-    [self.progressView removeFromSuperview];
-    self.progressView = nil;
-    
-    [self.progressLabel removeFromSuperview];
-    self.progressLabel = nil;
-    
-    [self.cancelButton removeFromSuperview];
-    self.cancelButton = nil;
-    
-    self.successLabel = [[[UILabel alloc] init] autorelease];
-    if (success) {
-        self.successImageView = [[[UIImageView alloc] initWithImage:[SCBundle imageWithName:@"success"]] autorelease];
-        self.successLabel.text = SCLocalizedString(@"record_save_upload_success", @"Yay, that worked!");
+    if (trackInfo != aTrackInfo) {
+        [aTrackInfo retain];
+        [trackInfo release];
+        trackInfo = aTrackInfo;
         
-    } else {
-        self.successImageView = [[[UIImageView alloc] initWithImage:[SCBundle imageWithName:@"fail"]] autorelease];
-        self.successLabel.text = SCLocalizedString(@"record_save_upload_fail", @"Ok, that went wrong.");
+        [self setNeedsLayout];
     }
-    [self.successImageView sizeToFit];
-    [self addSubview:self.successImageView];
-    
-    self.successLabel.textAlignment = UITextAlignmentCenter;
-    self.successLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
-    [self.successLabel sizeToFit];
-    [self addSubview:self.successLabel];
-    
-    [self setNeedsLayout];
 }
-
 
 #pragma mark View Management
     
 - (void)layoutSubviews;
 {
     [super layoutSubviews];
-    
-    //    NSLog(@"%s self.bounds: %@", __FUNCTION__, NSStringFromCGRect(self.bounds));
-    
+        
     CGFloat spacing;
     
     if ([UIDevice isIPad]) {
@@ -233,37 +237,76 @@ typedef enum SCRecordingUploadProgressViewState {
                                  CGRectGetWidth(self.bounds) - 2 * spacing,
                                  1);
     
+    self.progressLabel.frame = CGRectMake(spacing, CGRectGetMaxY(self.line.frame) + spacing, 0, 0);
+    [self.progressLabel sizeToFit];
+    
+    self.progressView.frame = CGRectMake(spacing, CGRectGetMaxY(self.progressLabel.frame) + 6, CGRectGetWidth(self.bounds) - 2 * spacing, 10);
+    
+    CGRect frame = self.frame;
+    
     switch (self.state) {
         case SCRecordingUploadProgressViewStateSuccess:
-        case SCRecordingUploadProgressViewStateFail:
         {
-            self.successImageView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMaxY(self.line.frame) + SPACING + CGRectGetHeight(self.successImageView.frame) / 2.0);
+            self.openTrackButton.hidden = NO;
             
-            self.successLabel.frame = CGRectMake(spacing, CGRectGetMaxY(self.successImageView.frame) + SPACING, CGRectGetWidth(self.bounds) - 2 * spacing, CGRectGetHeight(self.successLabel.frame));
+            NSURL *appURL = [self appURL];
+            if (appURL) {
+                [self.openTrackButton setTitle:SCLocalizedString(@"open_soundcloud_app", @"Open Track in SoundCloud App") forState:UIControlStateNormal];
+            } else {
+                [self.openTrackButton setTitle:SCLocalizedString(@"download_soundcloud_app", @"Get SoundCloud App") forState:UIControlStateNormal];
+            }
             
-            CGRect frame = self.frame;
-            frame.size.height = CGRectGetMaxY(self.successLabel.frame) + spacing;
-            self.frame = frame;
+            [self.openTrackButton sizeToFit];
+            
+            self.openTrackButton.center = CGPointMake(CGRectGetMidX(self.bounds),
+                                                      CGRectGetMaxY(self.progressView.frame) + spacing + CGRectGetHeight(self.openTrackButton.frame));
+            
+            frame.size.height = CGRectGetMaxY(self.openTrackButton.frame) + spacing;
             break;
         }
-            
+        
         default:
-        {
-            self.cancelButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - spacing - 30, CGRectGetMaxY(self.line.frame) + spacing, 30, 30);
-            
-            self.progressLabel.frame = CGRectMake(spacing, CGRectGetMaxY(self.line.frame) + spacing, 0, 0);
-            [self.progressLabel sizeToFit];
-            
-            self.progressView.frame = CGRectMake(spacing, CGRectGetMaxY(self.progressLabel.frame) + 6, CGRectGetWidth(self.bounds) - 30 - 3 * spacing, 10);
-            
-            CGRect frame = self.frame;
             frame.size.height = CGRectGetMaxY(self.progressView.frame) + spacing;
-            self.frame = frame;
             break;
-        }
-            break;
+    }
+    
+    self.frame = frame;
+}
+
+#pragma mark Actions
+
+- (void)openTrackButtonPressed;
+{
+    NSURL *appURL = [self appURL];
+    if (appURL) {
+        [[UIApplication sharedApplication] openURL:appURL];
+    } else {
+        [[UIApplication sharedApplication] openURL:[self appStoreURL]];
     }
 }
 
+#pragma mark Helpers
+
+- (NSURL *)appURL;
+{
+    NSURL *trackURL = [NSURL URLWithString:[NSString stringWithFormat:@"soundcloud:tracks/%@", [trackInfo objectForKey:@"id"]]];
+    NSURL *legacyTrackURL = [NSURL URLWithString:@"x-soundcloud:"];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:trackURL]) {
+        return trackURL;
+    } else if ([[UIApplication sharedApplication] canOpenURL:legacyTrackURL]) {
+        return legacyTrackURL;
+    } else {
+        return nil;
+    }
+
+}
+
+- (NSURL *)appStoreURL;
+{
+    return [NSURL URLWithString:@"itms-apps://itunes.com/apps/SoundCloud"];
+}
 
 @end
+
+
