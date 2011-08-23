@@ -84,10 +84,16 @@
     [self.recordSaveController setCreationDate:aDate];
 }
 
+- (void)setTags:(NSArray *)someTags;
+{
+    [self.recordSaveController setTags:someTags];
+}
+
 - (SCRecordingSaveViewController *)recordSaveController;
 {
     return (SCRecordingSaveViewController *)self.topViewController;
 }
+
 
 #pragma mark Foursquare
 

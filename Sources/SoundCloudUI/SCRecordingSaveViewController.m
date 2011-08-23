@@ -64,6 +64,7 @@
 @property (nonatomic, retain) UIImage *coverImage;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSDate *trackCreationDate;
+@property (nonatomic, retain) NSArray *customTags;
 
 @property (nonatomic, retain) CLLocation *location;
 @property (nonatomic, copy) NSString *locationTitle;
@@ -179,6 +180,7 @@ const NSArray *allServices = nil;
 @synthesize coverImage;
 @synthesize title;
 @synthesize trackCreationDate;
+@synthesize customTags;
 
 @synthesize location;
 @synthesize locationTitle;
@@ -390,6 +392,11 @@ const NSArray *allServices = nil;
 - (void)setCreationDate:(NSDate *)aCreationDate;
 {
     self.trackCreationDate = aCreationDate;
+}
+
+- (void)setTags:(NSArray *)someTags;
+{
+    self.customTags = someTags;
 }
 
 - (void)setAvailableConnections:(NSArray *)value;
@@ -1260,9 +1267,12 @@ const NSArray *allServices = nil;
         [parameters setObject:coverData forKey:@"track[artwork_data]"];
     }
     
+    // App name
+    NSString * appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+    
     // tags (location)
     NSMutableArray *tags = [NSMutableArray array];
-    [tags addObject:@"soundcloud:source=iphone-record"];
+    [tags addObject:[NSString stringWithFormat:@"soundcloud:source=%@", appName]];
     if (self.location) {
         [tags addObject:[NSString stringWithFormat:@"geo:lat=%f", self.location.coordinate.latitude]];
         [tags addObject:[NSString stringWithFormat:@"geo:lon=%f", self.location.coordinate.longitude]];
@@ -1270,8 +1280,14 @@ const NSArray *allServices = nil;
     if (self.foursquareID) {
         [tags addObject:[NSString stringWithFormat:@"foursquare:venue=%@", self.foursquareID]];
     }
-    [parameters setObject:[tags componentsJoinedByString:@" "] forKey:@"track[tag_list]"];
     
+    // tags (custom)
+    for (NSString *tag in self.customTags) {
+        // TODO: Should the tags be checked?
+        [tags addObject:tag];
+    }
+    
+    [parameters setObject:[tags componentsJoinedByString:@" "] forKey:@"track[tag_list]"];
     
     // perform request
     self.uploadRequestHandler = [SCRequest performMethod:SCRequestMethodPOST

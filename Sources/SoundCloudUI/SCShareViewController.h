@@ -37,6 +37,7 @@ typedef void(^SCSharingViewControllerComletionHandler)(NSDictionary *trackInfo, 
 - (void)setCoverImage:(UIImage *)aCoverImage;
 - (void)setTitle:(NSString *)aTitle;
 - (void)setCreationDate:(NSDate *)aDate;
+- (void)setTags:(NSArray *)someTags;
 
 #pragma mark Foursquare
 
