@@ -489,7 +489,7 @@ const NSArray *allServices = nil;
     
     
     // Table View
-    self.tableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
+    self.tableView = [[[UITableView alloc] initWithFrame:CGRectZero
                                                    style:UITableViewStyleGrouped] autorelease];
     
     self.tableView.autoresizingMask = (UIViewAutoresizingFlexibleHeight |
@@ -546,11 +546,10 @@ const NSArray *allServices = nil;
     
     [self.view addSubview:[[[SCShareToSoundCloudTitleView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.bounds), 28.0)] autorelease]];
     
-    [self.toolBar sizeToFit];
     [self.toolBar setFrame:CGRectMake(0.0,
-                                      self.view.frame.size.height - self.toolBar.frame.size.height, 
-                                      self.toolBar.frame.size.width,
-                                      self.toolBar.frame.size.height)];
+                                      CGRectGetHeight(self.view.bounds) - 44.0, 
+                                      CGRectGetWidth(self.view.bounds),
+                                      44.0)];
     
     CGRect tableViewFrame = self.view.bounds;
     tableViewFrame.origin.y += 28.0;        // Banner
@@ -581,10 +580,6 @@ const NSArray *allServices = nil;
 - (void)viewDidAppear:(BOOL)animated;
 {
     [super viewDidAppear:animated];
-    
-    if (!self.account) {
-        [self relogin];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated;
