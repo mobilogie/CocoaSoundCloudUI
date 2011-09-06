@@ -1204,19 +1204,31 @@ const NSArray *allServices = nil;
         [self.uploadProgressView removeFromSuperview];
     }
     
-    CGRect progressViewRect = CGRectZero;
-    if ([UIDevice isIPad]) {
-        progressViewRect = CGRectMake(62, 68, CGRectGetWidth(self.view.bounds) - 124, CGRectGetHeight(self.view.bounds) - 26 - 58);
-    } else {
-        progressViewRect = CGRectMake(26, 58, CGRectGetWidth(self.view.bounds) - 52, CGRectGetHeight(self.view.bounds) - 26 - 58);
-    }
+//    CGRect progressViewRect = CGRectZero;
+//    if ([UIDevice isIPad]) {
+//        progressViewRect = CGRectMake(62, 68, CGRectGetWidth(self.view.bounds) - 124, 464);
+//    } else {
+//        progressViewRect = CGRectMake(26, 58, CGRectGetWidth(self.view.bounds) - 52, CGRectGetHeight(self.view.bounds) - 26 - 58);
+//    }
+    
+    // Create new Upload Progress View and set Artwork and Title
+    
+    CGRect progressViewRect = self.view.bounds;
+    progressViewRect.size.height -= CGRectGetHeight(self.toolBar.frame) + 28;
+    progressViewRect.origin.y += 28;
     
     self.uploadProgressView = [[[SCRecordingUploadProgressView alloc] initWithFrame:progressViewRect] autorelease];
+    
+    self.uploadProgressView.artwork.image = self.coverImage;
+    self.uploadProgressView.title.text = [self generatedTitle];
+    
+    [self.uploadProgressView setNeedsLayout];
     [self.view insertSubview:self.uploadProgressView belowSubview:self.toolBar];
     
-    [self.uploadProgressView setTitle:[self generatedTitle]];
-    [self.uploadProgressView setCoverImage:self.coverImage];
-    
+//    
+//    [self.uploadProgressView setTitle:[self generatedTitle]];
+//    [self.uploadProgressView setCoverImage:self.coverImage];
+//    
     
     // set up request
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -1289,7 +1301,7 @@ const NSArray *allServices = nil;
                                               onResource:[NSURL URLWithString:@"https://api.soundcloud.com/tracks.json"]
                                          usingParameters:parameters
                                              withAccount:self.account
-                                  sendingProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal){self.uploadProgressView.progressView.progress = (float)bytesSend / bytesTotal;}
+                                  sendingProgressHandler:^(unsigned long long bytesSend, unsigned long long bytesTotal){self.uploadProgressView.progress.progress = (float)bytesSend / bytesTotal;}
                                          responseHandler:^(NSURLResponse *response, NSData *data, NSError *error){
                                              
                                              self.uploadRequestHandler = nil;
@@ -1308,6 +1320,7 @@ const NSArray *allServices = nil;
                                                      NSLog(@"Upload failed with json error: %@", [jsonError localizedDescription]);
                                                  
                                                  self.uploadProgressView.state = SCRecordingUploadProgressViewStateFailed;
+                                                 [self.uploadProgressView setNeedsLayout];
                                                  
                                                  // update tool bar
                                                  NSMutableArray *toolbarItems = [self.toolBar.items mutableCopy];
@@ -1328,6 +1341,7 @@ const NSArray *allServices = nil;
                                                  // update upload progress view
                                                  [self.uploadProgressView setTrackInfo:result];
                                                  self.uploadProgressView.state = SCRecordingUploadProgressViewStateSuccess;
+                                                 [self.uploadProgressView setNeedsLayout];
 
                                                  // update tool bar
                                                  NSMutableArray *toolbarItems = [NSMutableArray arrayWithCapacity:2];

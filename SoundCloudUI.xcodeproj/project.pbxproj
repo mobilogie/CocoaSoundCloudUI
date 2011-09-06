@@ -11,6 +11,11 @@
 		F6115A5013FC02AA006489E9 /* SCConnectToSoundCloudTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6115A4E13FC02AA006489E9 /* SCConnectToSoundCloudTitleView.m */; };
 		F697FF1713FBB68200B9369F /* SCUIErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = F697FF1513FBB68200B9369F /* SCUIErrors.h */; };
 		F697FF1813FBB68200B9369F /* SCUIErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F697FF1613FBB68200B9369F /* SCUIErrors.m */; };
+		F69FA35014162F0B007AB53A /* NSAttributedString+Attributes.h in Headers */ = {isa = PBXBuildFile; fileRef = F69FA34C14162F0B007AB53A /* NSAttributedString+Attributes.h */; };
+		F69FA35114162F0B007AB53A /* NSAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FA34D14162F0B007AB53A /* NSAttributedString+Attributes.m */; };
+		F69FA35214162F0B007AB53A /* OHAttributedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = F69FA34E14162F0B007AB53A /* OHAttributedLabel.h */; };
+		F69FA35314162F0B007AB53A /* OHAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FA34F14162F0B007AB53A /* OHAttributedLabel.m */; };
+		F69FA35A1416311A007AB53A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69FA3591416311A007AB53A /* CoreText.framework */; };
 		F6EF8C6513F929D700B20B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EF8C6413F929D700B20B40 /* Foundation.framework */; };
 		F6EF8CC213F92CF900B20B40 /* NSData+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudAPI.h */; };
 		F6EF8CC313F92CF900B20B40 /* NSData+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8813F92CF900B20B40 /* NSData+SoundCloudAPI.m */; };
@@ -78,6 +83,11 @@
 		F678274413F9446C00CACABE /* SoundCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SoundCloud.bundle; sourceTree = "<group>"; };
 		F697FF1513FBB68200B9369F /* SCUIErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUIErrors.h; sourceTree = "<group>"; };
 		F697FF1613FBB68200B9369F /* SCUIErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUIErrors.m; sourceTree = "<group>"; };
+		F69FA34C14162F0B007AB53A /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+Attributes.h"; path = "OHAttributedLabel/NSAttributedString+Attributes.h"; sourceTree = "<group>"; };
+		F69FA34D14162F0B007AB53A /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+Attributes.m"; path = "OHAttributedLabel/NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
+		F69FA34E14162F0B007AB53A /* OHAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OHAttributedLabel.h; path = OHAttributedLabel/OHAttributedLabel.h; sourceTree = "<group>"; };
+		F69FA34F14162F0B007AB53A /* OHAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OHAttributedLabel.m; path = OHAttributedLabel/OHAttributedLabel.m; sourceTree = "<group>"; };
+		F69FA3591416311A007AB53A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		F6EF8C6113F929D700B20B40 /* libSoundCloudUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoundCloudUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EF8C6413F929D700B20B40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SoundCloudAPI.h"; sourceTree = "<group>"; };
@@ -143,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69FA35A1416311A007AB53A /* CoreText.framework in Frameworks */,
 				F6EF8C6513F929D700B20B40 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,9 +211,29 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		F69FA34614162ECF007AB53A /* Outsourced */ = {
+			isa = PBXGroup;
+			children = (
+				F69FA35414162F16007AB53A /* OHAttributedLabel */,
+			);
+			path = Outsourced;
+			sourceTree = "<group>";
+		};
+		F69FA35414162F16007AB53A /* OHAttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				F69FA34C14162F0B007AB53A /* NSAttributedString+Attributes.h */,
+				F69FA34D14162F0B007AB53A /* NSAttributedString+Attributes.m */,
+				F69FA34E14162F0B007AB53A /* OHAttributedLabel.h */,
+				F69FA34F14162F0B007AB53A /* OHAttributedLabel.m */,
+			);
+			name = OHAttributedLabel;
+			sourceTree = "<group>";
+		};
 		F6EF8C5613F929D700B20B40 = {
 			isa = PBXGroup;
 			children = (
+				F69FA34614162ECF007AB53A /* Outsourced */,
 				F6EF8C8513F92CF900B20B40 /* Sources */,
 				F6EF8C6313F929D700B20B40 /* Frameworks */,
 				F6EF8C6213F929D700B20B40 /* Products */,
@@ -224,6 +255,7 @@
 				F678272213F9315B00CACABE /* libOAuth2Client.a */,
 				F678272313F9315B00CACABE /* libSoundCloudAPI.a */,
 				F6EF8C6413F929D700B20B40 /* Foundation.framework */,
+				F69FA3591416311A007AB53A /* CoreText.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -380,6 +412,8 @@
 				F6F5E4ED13F963B700492B2B /* UIDevie+SoundCloudUI.h in Headers */,
 				F697FF1713FBB68200B9369F /* SCUIErrors.h in Headers */,
 				F6115A4F13FC02AA006489E9 /* SCConnectToSoundCloudTitleView.h in Headers */,
+				F69FA35014162F0B007AB53A /* NSAttributedString+Attributes.h in Headers */,
+				F69FA35214162F0B007AB53A /* OHAttributedLabel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +496,8 @@
 				F6F5E4EE13F963B700492B2B /* UIDevie+SoundCloudUI.m in Sources */,
 				F697FF1813FBB68200B9369F /* SCUIErrors.m in Sources */,
 				F6115A5013FC02AA006489E9 /* SCConnectToSoundCloudTitleView.m in Sources */,
+				F69FA35114162F0B007AB53A /* NSAttributedString+Attributes.m in Sources */,
+				F69FA35314162F0B007AB53A /* OHAttributedLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

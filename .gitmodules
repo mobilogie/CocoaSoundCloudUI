@@ -1,0 +1,3 @@
+[submodule "Outsourced/OHAttributedLabel"]
+	path = Outsourced/OHAttributedLabel
+	url = git://github.com/nxtbgthng/OHAttributedLabel.git
