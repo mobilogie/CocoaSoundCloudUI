@@ -103,3 +103,11 @@
 "service_tumblr" = "Tumblr";
 
 "service_twitter" = "Twitter";
+
+"record_save_upload_success_message_app" = "See who's commenting on your sounds by opening it in the SoundCloud app.";
+
+"record_save_upload_success_message_appstore" = "See who's commenting on your sounds by downloading the %@ SoundCloud app.";
+
+"record_save_upload_success_message_appstore_substring" = "free";
+
+"open_soundcloud" = "Open SoundCloud";

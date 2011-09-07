@@ -1204,13 +1204,6 @@ const NSArray *allServices = nil;
         [self.uploadProgressView removeFromSuperview];
     }
     
-//    CGRect progressViewRect = CGRectZero;
-//    if ([UIDevice isIPad]) {
-//        progressViewRect = CGRectMake(62, 68, CGRectGetWidth(self.view.bounds) - 124, 464);
-//    } else {
-//        progressViewRect = CGRectMake(26, 58, CGRectGetWidth(self.view.bounds) - 52, CGRectGetHeight(self.view.bounds) - 26 - 58);
-//    }
-    
     // Create new Upload Progress View and set Artwork and Title
     
     CGRect progressViewRect = self.view.bounds;
@@ -1219,16 +1212,11 @@ const NSArray *allServices = nil;
     
     self.uploadProgressView = [[[SCRecordingUploadProgressView alloc] initWithFrame:progressViewRect] autorelease];
     
-    self.uploadProgressView.artwork.image = self.coverImage;
+    self.uploadProgressView.artwork = self.coverImage;
     self.uploadProgressView.title.text = [self generatedTitle];
     
     [self.uploadProgressView setNeedsLayout];
     [self.view insertSubview:self.uploadProgressView belowSubview:self.toolBar];
-    
-//    
-//    [self.uploadProgressView setTitle:[self generatedTitle]];
-//    [self.uploadProgressView setCoverImage:self.coverImage];
-//    
     
     // set up request
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];

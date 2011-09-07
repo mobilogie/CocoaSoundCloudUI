@@ -41,7 +41,7 @@
 @interface SCRecordingUploadProgressView ()
 - (void)commonAwake;
 
-@property (nonatomic, readwrite, assign) UIImageView *artwork;
+@property (nonatomic, readwrite, assign) UIImageView *artworkView;
 @property (nonatomic, readwrite, assign) UILabel *title;
 @property (nonatomic, readwrite, assign) UIProgressView *progress;
 
@@ -113,11 +113,13 @@
 
 #pragma mark Accessors
 
-@synthesize artwork;
+@synthesize artworkView;
 @synthesize title;
 @synthesize progress;
 @synthesize state;
 @synthesize trackInfo;
+
+@synthesize artwork;
 
 @synthesize contentView;
 
@@ -133,19 +135,19 @@
 @synthesize openAppButton;
 
 
-- (UIImageView *)artwork;
+- (UIImageView *)artworkView;
 {
-    if (!artwork) {
+    if (!artworkView) {
         CGRect artworkFrame = CGRectZero;
         if ([UIDevice isIPad]) {
             artworkFrame = CGRectMake(0, 0, 80, 80);
         } else {
             artworkFrame = CGRectMake(0, 0, 40, 40);
         }
-        artwork = [[[UIImageView alloc] initWithFrame:artworkFrame] autorelease];
-        [self.contentView addSubview:artwork];
+        artworkView = [[[UIImageView alloc] initWithFrame:artworkFrame] autorelease];
+        [self.contentView addSubview:artworkView];
     }
-    return artwork;
+    return artworkView;
 }
 
 - (UILabel *)title;
@@ -170,6 +172,11 @@
         [self.contentView addSubview:progress];
     }
     return progress;
+}
+
+- (void)setArtwork:(UIImage *)anArtwork;
+{
+    self.artworkView.image = [anArtwork imageByResizingTo:self.artworkView.frame.size forRetinaDisplay:YES];
 }
 
 - (UIView *)contentView;
@@ -257,7 +264,7 @@
         openAppButton = [UIButton buttonWithType:UIButtonTypeCustom];
         openAppButton.backgroundColor = [UIColor clearColor];
         [openAppButton setBackgroundImage:[[SCBundle imageWithName:@"open-bg"] stretchableImageWithLeftCapWidth:14 topCapHeight:0] forState:UIControlStateNormal];
-        [openAppButton setTitle:@"Open SoundCloud" forState:UIControlStateNormal];
+        [openAppButton setTitle:SCLocalizedString(@"open_soundcloud", @"Open SoundCloud") forState:UIControlStateNormal];
         [openAppButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         openAppButton.titleLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
         openAppButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 10); 
@@ -312,13 +319,13 @@
     CGFloat innerWitdh = newContentSize.width - 2 * horizontalMargin;
     CGPoint offset = CGPointMake(horizontalMargin, verticalMargin);
     
-    if (self.artwork.image) {
-        self.artwork.frame = CGRectMake(offset.x,
+    if (self.artworkView.image) {
+        self.artworkView.frame = CGRectMake(offset.x,
                                         offset.y,
-                                        CGRectGetWidth(self.artwork.frame),
-                                        CGRectGetHeight(self.artwork.frame));
+                                        CGRectGetWidth(self.artworkView.frame),
+                                        CGRectGetHeight(self.artworkView.frame));
         
-        offset.x += CGRectGetWidth(self.artwork.frame) + horizontalPadding;
+        offset.x += CGRectGetWidth(self.artworkView.frame) + horizontalPadding;
     }
     
     
@@ -336,8 +343,8 @@
                                       titleSize.width,
                                       titleSize.height);
         offset.x = horizontalMargin;
-        if (self.artwork.image) {
-            offset.y = CGRectGetMaxY(self.artwork.frame);
+        if (self.artworkView.image) {
+            offset.y = CGRectGetMaxY(self.artworkView.frame);
         } else {
             offset.y = CGRectGetMaxY(self.title.frame);
         }
@@ -426,7 +433,8 @@
                 self.openAppButton.hidden = NO;
                 self.openAppStoreButton.hidden = YES;
                 
-                NSMutableAttributedString *text = [NSMutableAttributedString attributedStringWithString:@"See who's commenting on your sounds by opening it in the SoundCloud app."];
+
+                NSMutableAttributedString *text = [NSMutableAttributedString attributedStringWithString:SCLocalizedString(@"record_save_upload_success_message_app", @"See who's commenting on your sounds by opening it in the SoundCloud app.")];
                 [text setFont:self.resultText.font];
                 self.resultText.attributedText = text;
                 
@@ -447,12 +455,17 @@
                 self.openAppButton.hidden = YES;
                 self.openAppStoreButton.hidden = NO;
                 
-                NSMutableAttributedString *text = [NSMutableAttributedString attributedStringWithString:@"See who's commenting on your sounds by downloading the free SoundCloud app."];
-                NSRange orangeRange;
-                orangeRange.location = 55;
-                orangeRange.length = 4;
+                NSString *appStoreMessage = SCLocalizedString(@"record_save_upload_success_message_appstore", @"See who's commenting on your sounds by downloading the %@ SoundCloud app.");
+                NSString *appStoreMessageSubstring = SCLocalizedString(@"record_save_upload_success_message_appstore_substring", @"free");
+                
+                NSRange orangeRange = [appStoreMessage rangeOfString:@"%@"];
+                orangeRange.length = [appStoreMessageSubstring length];
+                
+                NSMutableAttributedString *text = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:appStoreMessage, appStoreMessageSubstring]];
+                
                 [text setTextColor:[UIColor orangeColor] range:orangeRange];
                 [text setFont:self.resultText.font];
+                
                 self.resultText.attributedText = text;
                 
                 self.resultText.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + 10,
