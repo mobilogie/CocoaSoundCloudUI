@@ -156,7 +156,7 @@
 - (void)failToRequestAccess:(NSNotification *)aNotification;
 {
     if (self.completionHandler) {
-        NSError *error = [[aNotification userInfo] objectForKey:kNXOAuth2AccountStoreError];
+        NSError *error = [[aNotification userInfo] objectForKey:NXOAuth2AccountStoreErrorKey];
         self.completionHandler(error);
     }
     
