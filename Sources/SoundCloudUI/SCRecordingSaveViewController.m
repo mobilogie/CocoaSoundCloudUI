@@ -1334,9 +1334,7 @@ const NSArray *allServices = nil;
                                                  // update tool bar
                                                  NSMutableArray *toolbarItems = [NSMutableArray arrayWithCapacity:2];
                                                  [toolbarItems addObject:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease]];
-                                                 [toolbarItems addObject:[[UIBarButtonItem alloc] initWithTitle:SCLocalizedString(@"done", @"Done")
-                                                                                                          style:UIBarButtonItemStyleBordered
-                                                                                                         target:self action:@selector(close)]];
+                                                 [toolbarItems addObject:[[[UIBarButtonItem alloc] initWithTitle:SCLocalizedString(@"done", @"Done") style:UIBarButtonItemStyleBordered target:self action:@selector(close)] autorelease]];
                                                  [self.toolBar setItems:toolbarItems animated:YES];
                                             }
                                          }];
@@ -1653,7 +1651,7 @@ const NSArray *allServices = nil;
     // Crop image using crop rect
     CGImageRef image = CGImageCreateWithImageInRect(ref, editCropRect);
     UIImage* cropedImage = [UIImage imageWithCGImage:image];
-    CGImageRelease(ref);
+    CGImageRelease(image);
     
     // Perform image rotation
     UIImage *scaledImage = [cropedImage imageByResizingTo:CGSizeMake(COVER_WIDTH, COVER_WIDTH)];

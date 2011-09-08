@@ -330,12 +330,6 @@
     
     
     if (self.title.text) {
-        CGFloat maxTitleHeight = 0;
-        if ([UIDevice isIPad]) {
-            maxTitleHeight = 80;
-        } else {
-            maxTitleHeight = 40;
-        }
         CGSize maxTitleSize = CGSizeMake(innerWitdh - offset.x, CGFLOAT_MAX);
         CGSize titleSize = [self.title.text sizeWithFont:self.title.font constrainedToSize:maxTitleSize];
         self.title.frame = CGRectMake(offset.x,
