@@ -549,7 +549,7 @@
 
 - (NSURL *)appURL;
 {
-    NSURL *trackURL = [NSURL URLWithString:[NSString stringWithFormat:@"soundcloud:tracks/%@", [trackInfo objectForKey:@"id"]]];
+    NSURL *trackURL = [NSURL URLWithString:[NSString stringWithFormat:@"soundcloud:tracks:%@", [trackInfo objectForKey:@"id"]]];
     NSURL *legacyTrackURL = [NSURL URLWithString:@"x-soundcloud:"];
     
     if ([[UIApplication sharedApplication] canOpenURL:trackURL]) {
