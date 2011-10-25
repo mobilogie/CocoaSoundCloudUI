@@ -18,18 +18,12 @@
  * 
  */
 
-#import "UIDevie+SoundCloudUI.h"
+#import <Foundation/Foundation.h>
 
-@implementation UIDevice (SoundCloudUI)
 
-+ (BOOL)isIPad;
-{
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		return YES; 
-	}
-#endif
-	return NO;
-}
+@interface NSData (SoundCloudUI)
+
+- (id)JSONObject;
+- (NSString *)errorMessageFrom422Error;
 
 @end

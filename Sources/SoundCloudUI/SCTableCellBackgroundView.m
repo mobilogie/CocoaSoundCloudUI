@@ -20,7 +20,7 @@
 
 // http://stackoverflow.com/questions/400965/how-to-customize-the-background-border-colors-of-a-grouped-table-view
 
-#import "QuartzCore+SoundCloudAPI.h"
+#import "QuartzCore+SoundCloudUI.h"
 
 #import "SCTableCellBackgroundView.h"
 

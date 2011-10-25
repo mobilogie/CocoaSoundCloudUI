@@ -23,8 +23,8 @@
 #import "OHAttributedLabel.h"
 
 #import "NSAttributedString+Attributes.h"
-#import "QuartzCore+SoundCloudAPI.h"
-#import "UIImage+SoundCloudAPI.h"
+#import "QuartzCore+SoundCloudUI.h"
+#import "UIImage+SoundCloudUI.h"
 #import "UIDevie+SoundCloudUI.h"
 
 #import "SCBundle.h"

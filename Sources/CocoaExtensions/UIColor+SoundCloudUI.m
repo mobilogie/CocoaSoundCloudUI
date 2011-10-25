@@ -18,18 +18,39 @@
  * 
  */
 
-#import "UIDevie+SoundCloudUI.h"
+#import "UIColor+SoundCloudUI.h"
 
-@implementation UIDevice (SoundCloudUI)
+@implementation UIColor (SoundCloudUI)
 
-+ (BOOL)isIPad;
++ (UIColor *)transparentBlack;
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		return YES; 
-	}
-#endif
-	return NO;
+    return [UIColor colorWithWhite:0 alpha:0.2];
+}
+
++ (UIColor *)almostBlackColor;
+{
+    return [UIColor colorWithWhite:0.200 alpha:1.0];
+}
+
+
++ (UIColor *)listSubtitleColor;
+{
+    return [UIColor colorWithWhite:0.510 alpha:1.000];
+}
+
++ (UIColor *)soundCloudOrangeWithAlpha:(CGFloat)alpha;
+{
+   return [UIColor colorWithRed:0.984 green:0.388 blue:0.106 alpha:alpha]; 
+}
+
++ (UIColor *)soundCloudOrange;
+{
+    return [UIColor soundCloudOrangeWithAlpha:1.0];
+}
+
++ (UIColor *)soundCloudListShineThroughWhite;
+{
+    return [UIColor colorWithWhite:1.0 alpha:0.8];
 }
 
 @end

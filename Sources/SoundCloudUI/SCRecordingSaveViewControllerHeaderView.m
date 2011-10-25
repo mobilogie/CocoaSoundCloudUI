@@ -18,9 +18,9 @@
  * 
  */
 
-#import "QuartzCore+SoundCloudAPI.h"
-#import "UIImage+SoundCloudAPI.h"
-#import "UIColor+SoundCloudAPI.h"
+#import "QuartzCore+SoundCloudUI.h"
+#import "UIImage+SoundCloudUI.h"
+#import "UIColor+SoundCloudUI.h"
 
 #import "SCHorizontalLineView.h"
 #import "SCUnderlinedButton.h"

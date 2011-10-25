@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 nxtbgthng for SoundCloud Ltd.
+ * Copyright 2010, 2011 nxtbgthng for SoundCloud Ltd.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -21,7 +21,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (SoundCloudAPI)
+@interface NSString (SoundCloudUI)
 
 + (NSString *)stringWithSeconds:(NSTimeInterval)seconds;
 + (NSString *)stringWithMilliseconds:(NSInteger)seconds;

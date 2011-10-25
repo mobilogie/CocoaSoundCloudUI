@@ -19,7 +19,7 @@
  */
 
 #import "SCTextField.h"
-#import "UIColor+SoundCloudAPI.h"
+#import "UIColor+SoundCloudUI.h"
 
 @implementation SCTextField
 

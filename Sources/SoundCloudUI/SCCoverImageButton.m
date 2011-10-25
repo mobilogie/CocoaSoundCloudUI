@@ -18,8 +18,8 @@
  * 
  */
 
-#import "QuartzCore+SoundCloudAPI.h"
-#import "UIColor+SoundCloudAPI.h"
+#import "QuartzCore+SoundCloudUI.h"
+#import "UIColor+SoundCloudUI.h"
 
 #import "SCCoverImageButton.h"
 

@@ -17,18 +17,18 @@
 		F69FA35314162F0B007AB53A /* OHAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F69FA34F14162F0B007AB53A /* OHAttributedLabel.m */; };
 		F69FA35A1416311A007AB53A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69FA3591416311A007AB53A /* CoreText.framework */; };
 		F6EF8C6513F929D700B20B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EF8C6413F929D700B20B40 /* Foundation.framework */; };
-		F6EF8CC213F92CF900B20B40 /* NSData+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudAPI.h */; };
-		F6EF8CC313F92CF900B20B40 /* NSData+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8813F92CF900B20B40 /* NSData+SoundCloudAPI.m */; };
-		F6EF8CC413F92CF900B20B40 /* NSString+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8913F92CF900B20B40 /* NSString+SoundCloudAPI.h */; };
-		F6EF8CC513F92CF900B20B40 /* NSString+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8A13F92CF900B20B40 /* NSString+SoundCloudAPI.m */; };
-		F6EF8CC613F92CF900B20B40 /* QuartzCore+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8B13F92CF900B20B40 /* QuartzCore+SoundCloudAPI.m */; };
-		F6EF8CC713F92CF900B20B40 /* QuartzCore+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8C13F92CF900B20B40 /* QuartzCore+SoundCloudAPI.h */; };
-		F6EF8CC813F92CF900B20B40 /* UIColor+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8D13F92CF900B20B40 /* UIColor+SoundCloudAPI.h */; };
-		F6EF8CC913F92CF900B20B40 /* UIColor+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8E13F92CF900B20B40 /* UIColor+SoundCloudAPI.m */; };
-		F6EF8CCA13F92CF900B20B40 /* UIImage+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8F13F92CF900B20B40 /* UIImage+SoundCloudAPI.h */; };
-		F6EF8CCB13F92CF900B20B40 /* UIImage+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudAPI.m */; };
-		F6EF8CCC13F92CF900B20B40 /* UIView+SoundCloudAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudAPI.h */; };
-		F6EF8CCD13F92CF900B20B40 /* UIView+SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudAPI.m */; };
+		F6EF8CC213F92CF900B20B40 /* NSData+SoundCloudUI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudUI.h */; };
+		F6EF8CC313F92CF900B20B40 /* NSData+SoundCloudUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8813F92CF900B20B40 /* NSData+SoundCloudUI.m */; };
+		F6EF8CC413F92CF900B20B40 /* NSString+SoundCloudUI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8913F92CF900B20B40 /* NSString+SoundCloudUI.h */; };
+		F6EF8CC513F92CF900B20B40 /* NSString+SoundCloudUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8A13F92CF900B20B40 /* NSString+SoundCloudUI.m */; };
+		F6EF8CC613F92CF900B20B40 /* QuartzCore+SoundCloudUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8B13F92CF900B20B40 /* QuartzCore+SoundCloudUI.m */; };
+		F6EF8CC713F92CF900B20B40 /* QuartzCore+SoundCloudUI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8C13F92CF900B20B40 /* QuartzCore+SoundCloudUI.h */; };
+		F6EF8CC813F92CF900B20B40 /* UIColor+SoundCloudUI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8D13F92CF900B20B40 /* UIColor+SoundCloudUI.h */; };
+		F6EF8CC913F92CF900B20B40 /* UIColor+SoundCloudUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C8E13F92CF900B20B40 /* UIColor+SoundCloudUI.m */; };
+		F6EF8CCA13F92CF900B20B40 /* UIImage+SoundCloudUI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C8F13F92CF900B20B40 /* UIImage+SoundCloudUI.h */; };
+		F6EF8CCB13F92CF900B20B40 /* UIImage+SoundCloudUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudUI.m */; };
+		F6EF8CCC13F92CF900B20B40 /* UIView+SoundCloudUI.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudUI.h */; };
+		F6EF8CCD13F92CF900B20B40 /* UIView+SoundCloudUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudUI.m */; };
 		F6EF8CD013F92CF900B20B40 /* SCAddConnectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9613F92CF900B20B40 /* SCAddConnectionViewController.h */; };
 		F6EF8CD113F92CF900B20B40 /* SCAddConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EF8C9713F92CF900B20B40 /* SCAddConnectionViewController.m */; };
 		F6EF8CD213F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EF8C9813F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h */; };
@@ -92,27 +92,27 @@
 		F69FA3591416311A007AB53A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		F6EF8C6113F929D700B20B40 /* libSoundCloudUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoundCloudUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EF8C6413F929D700B20B40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SoundCloudAPI.h"; sourceTree = "<group>"; };
-		F6EF8C8813F92CF900B20B40 /* NSData+SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SoundCloudAPI.m"; sourceTree = "<group>"; };
-		F6EF8C8913F92CF900B20B40 /* NSString+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SoundCloudAPI.h"; sourceTree = "<group>"; };
-		F6EF8C8A13F92CF900B20B40 /* NSString+SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SoundCloudAPI.m"; sourceTree = "<group>"; };
-		F6EF8C8B13F92CF900B20B40 /* QuartzCore+SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QuartzCore+SoundCloudAPI.m"; sourceTree = "<group>"; };
-		F6EF8C8C13F92CF900B20B40 /* QuartzCore+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuartzCore+SoundCloudAPI.h"; sourceTree = "<group>"; };
-		F6EF8C8D13F92CF900B20B40 /* UIColor+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SoundCloudAPI.h"; sourceTree = "<group>"; };
-		F6EF8C8E13F92CF900B20B40 /* UIColor+SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SoundCloudAPI.m"; sourceTree = "<group>"; };
-		F6EF8C8F13F92CF900B20B40 /* UIImage+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SoundCloudAPI.h"; sourceTree = "<group>"; };
-		F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SoundCloudAPI.m"; sourceTree = "<group>"; };
-		F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SoundCloudAPI.h"; sourceTree = "<group>"; };
-		F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SoundCloudAPI.m"; sourceTree = "<group>"; };
+		F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SoundCloudUI.h"; sourceTree = "<group>"; };
+		F6EF8C8813F92CF900B20B40 /* NSData+SoundCloudUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSData+SoundCloudUI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F6EF8C8913F92CF900B20B40 /* NSString+SoundCloudUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSString+SoundCloudUI.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F6EF8C8A13F92CF900B20B40 /* NSString+SoundCloudUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSString+SoundCloudUI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F6EF8C8B13F92CF900B20B40 /* QuartzCore+SoundCloudUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "QuartzCore+SoundCloudUI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F6EF8C8C13F92CF900B20B40 /* QuartzCore+SoundCloudUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "QuartzCore+SoundCloudUI.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F6EF8C8D13F92CF900B20B40 /* UIColor+SoundCloudUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIColor+SoundCloudUI.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F6EF8C8E13F92CF900B20B40 /* UIColor+SoundCloudUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIColor+SoundCloudUI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F6EF8C8F13F92CF900B20B40 /* UIImage+SoundCloudUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImage+SoundCloudUI.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+SoundCloudUI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIView+SoundCloudUI.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIView+SoundCloudUI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8C9613F92CF900B20B40 /* SCAddConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddConnectionViewController.h; sourceTree = "<group>"; };
-		F6EF8C9713F92CF900B20B40 /* SCAddConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddConnectionViewController.m; sourceTree = "<group>"; };
+		F6EF8C9713F92CF900B20B40 /* SCAddConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCAddConnectionViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8C9813F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddConnectionViewControllerDelegate.h; sourceTree = "<group>"; };
 		F6EF8C9B13F92CF900B20B40 /* SCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBundle.h; sourceTree = "<group>"; };
 		F6EF8C9C13F92CF900B20B40 /* SCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBundle.m; sourceTree = "<group>"; };
 		F6EF8C9D13F92CF900B20B40 /* SCCoverImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCoverImageButton.h; sourceTree = "<group>"; };
-		F6EF8C9E13F92CF900B20B40 /* SCCoverImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCoverImageButton.m; sourceTree = "<group>"; };
+		F6EF8C9E13F92CF900B20B40 /* SCCoverImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCCoverImageButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8C9F13F92CF900B20B40 /* SCFoursquarePlacePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFoursquarePlacePickerController.h; sourceTree = "<group>"; };
-		F6EF8CA013F92CF900B20B40 /* SCFoursquarePlacePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFoursquarePlacePickerController.m; sourceTree = "<group>"; };
+		F6EF8CA013F92CF900B20B40 /* SCFoursquarePlacePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCFoursquarePlacePickerController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8CA113F92CF900B20B40 /* SCFoursquarePlacePickerControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFoursquarePlacePickerControllerDelegate.h; sourceTree = "<group>"; };
 		F6EF8CA213F92CF900B20B40 /* SCHorizontalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHorizontalLineView.h; sourceTree = "<group>"; };
 		F6EF8CA313F92CF900B20B40 /* SCHorizontalLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHorizontalLineView.m; sourceTree = "<group>"; };
@@ -121,13 +121,13 @@
 		F6EF8CA613F92CF900B20B40 /* SCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoginViewController.h; sourceTree = "<group>"; };
 		F6EF8CA713F92CF900B20B40 /* SCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoginViewController.m; sourceTree = "<group>"; };
 		F6EF8CA813F92CF900B20B40 /* SCNameAndEmailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNameAndEmailCell.h; sourceTree = "<group>"; };
-		F6EF8CA913F92CF900B20B40 /* SCNameAndEmailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNameAndEmailCell.m; sourceTree = "<group>"; };
+		F6EF8CA913F92CF900B20B40 /* SCNameAndEmailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCNameAndEmailCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8CAA13F92CF900B20B40 /* SCRecordingSaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecordingSaveViewController.h; sourceTree = "<group>"; };
-		F6EF8CAB13F92CF900B20B40 /* SCRecordingSaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecordingSaveViewController.m; sourceTree = "<group>"; };
+		F6EF8CAB13F92CF900B20B40 /* SCRecordingSaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCRecordingSaveViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8CAD13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecordingSaveViewControllerHeaderView.h; sourceTree = "<group>"; };
-		F6EF8CAE13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecordingSaveViewControllerHeaderView.m; sourceTree = "<group>"; };
+		F6EF8CAE13F92CF900B20B40 /* SCRecordingSaveViewControllerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCRecordingSaveViewControllerHeaderView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8CAF13F92CF900B20B40 /* SCRecordingUploadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRecordingUploadProgressView.h; sourceTree = "<group>"; };
-		F6EF8CB013F92CF900B20B40 /* SCRecordingUploadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRecordingUploadProgressView.m; sourceTree = "<group>"; };
+		F6EF8CB013F92CF900B20B40 /* SCRecordingUploadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCRecordingUploadProgressView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8CB113F92CF900B20B40 /* SCShareToSoundCloudTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareToSoundCloudTitleView.h; sourceTree = "<group>"; };
 		F6EF8CB213F92CF900B20B40 /* SCShareToSoundCloudTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareToSoundCloudTitleView.m; sourceTree = "<group>"; };
 		F6EF8CB313F92CF900B20B40 /* SCShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareViewController.h; sourceTree = "<group>"; };
@@ -135,13 +135,13 @@
 		F6EF8CB513F92CF900B20B40 /* SCSharingMailPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSharingMailPickerController.h; sourceTree = "<group>"; };
 		F6EF8CB613F92CF900B20B40 /* SCSharingMailPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSharingMailPickerController.m; sourceTree = "<group>"; };
 		F6EF8CB713F92CF900B20B40 /* SCSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSwitch.h; sourceTree = "<group>"; };
-		F6EF8CB813F92CF900B20B40 /* SCSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSwitch.m; sourceTree = "<group>"; };
+		F6EF8CB813F92CF900B20B40 /* SCSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCSwitch.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8CB913F92CF900B20B40 /* SCSwitchLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSwitchLabel.h; sourceTree = "<group>"; };
 		F6EF8CBA13F92CF900B20B40 /* SCSwitchLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSwitchLabel.m; sourceTree = "<group>"; };
 		F6EF8CBB13F92CF900B20B40 /* SCTableCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTableCellBackgroundView.h; sourceTree = "<group>"; };
-		F6EF8CBC13F92CF900B20B40 /* SCTableCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTableCellBackgroundView.m; sourceTree = "<group>"; };
+		F6EF8CBC13F92CF900B20B40 /* SCTableCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCTableCellBackgroundView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8CBD13F92CF900B20B40 /* SCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTextField.h; sourceTree = "<group>"; };
-		F6EF8CBE13F92CF900B20B40 /* SCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTextField.m; sourceTree = "<group>"; };
+		F6EF8CBE13F92CF900B20B40 /* SCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SCTextField.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F6EF8CBF13F92CF900B20B40 /* SCUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUI.h; sourceTree = "<group>"; };
 		F6EF8CC013F92CF900B20B40 /* SCUnderlinedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUnderlinedButton.h; sourceTree = "<group>"; };
 		F6EF8CC113F92CF900B20B40 /* SCUnderlinedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUnderlinedButton.m; sourceTree = "<group>"; };
@@ -277,18 +277,18 @@
 		F6EF8C8613F92CF900B20B40 /* CocoaExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudAPI.h */,
-				F6EF8C8813F92CF900B20B40 /* NSData+SoundCloudAPI.m */,
-				F6EF8C8913F92CF900B20B40 /* NSString+SoundCloudAPI.h */,
-				F6EF8C8A13F92CF900B20B40 /* NSString+SoundCloudAPI.m */,
-				F6EF8C8C13F92CF900B20B40 /* QuartzCore+SoundCloudAPI.h */,
-				F6EF8C8B13F92CF900B20B40 /* QuartzCore+SoundCloudAPI.m */,
-				F6EF8C8D13F92CF900B20B40 /* UIColor+SoundCloudAPI.h */,
-				F6EF8C8E13F92CF900B20B40 /* UIColor+SoundCloudAPI.m */,
-				F6EF8C8F13F92CF900B20B40 /* UIImage+SoundCloudAPI.h */,
-				F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudAPI.m */,
-				F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudAPI.h */,
-				F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudAPI.m */,
+				F6EF8C8713F92CF900B20B40 /* NSData+SoundCloudUI.h */,
+				F6EF8C8813F92CF900B20B40 /* NSData+SoundCloudUI.m */,
+				F6EF8C8913F92CF900B20B40 /* NSString+SoundCloudUI.h */,
+				F6EF8C8A13F92CF900B20B40 /* NSString+SoundCloudUI.m */,
+				F6EF8C8C13F92CF900B20B40 /* QuartzCore+SoundCloudUI.h */,
+				F6EF8C8B13F92CF900B20B40 /* QuartzCore+SoundCloudUI.m */,
+				F6EF8C8D13F92CF900B20B40 /* UIColor+SoundCloudUI.h */,
+				F6EF8C8E13F92CF900B20B40 /* UIColor+SoundCloudUI.m */,
+				F6EF8C8F13F92CF900B20B40 /* UIImage+SoundCloudUI.h */,
+				F6EF8C9013F92CF900B20B40 /* UIImage+SoundCloudUI.m */,
+				F6EF8C9113F92CF900B20B40 /* UIView+SoundCloudUI.h */,
+				F6EF8C9213F92CF900B20B40 /* UIView+SoundCloudUI.m */,
 				F6F5E4EB13F963B700492B2B /* UIDevie+SoundCloudUI.h */,
 				F6F5E4EC13F963B700492B2B /* UIDevie+SoundCloudUI.m */,
 				F6F9D0561456A8F5004106BA /* UIViewController+SoundCloudUI.h */,
@@ -386,12 +386,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6EF8CC213F92CF900B20B40 /* NSData+SoundCloudAPI.h in Headers */,
-				F6EF8CC413F92CF900B20B40 /* NSString+SoundCloudAPI.h in Headers */,
-				F6EF8CC713F92CF900B20B40 /* QuartzCore+SoundCloudAPI.h in Headers */,
-				F6EF8CC813F92CF900B20B40 /* UIColor+SoundCloudAPI.h in Headers */,
-				F6EF8CCA13F92CF900B20B40 /* UIImage+SoundCloudAPI.h in Headers */,
-				F6EF8CCC13F92CF900B20B40 /* UIView+SoundCloudAPI.h in Headers */,
+				F6EF8CC213F92CF900B20B40 /* NSData+SoundCloudUI.h in Headers */,
+				F6EF8CC413F92CF900B20B40 /* NSString+SoundCloudUI.h in Headers */,
+				F6EF8CC713F92CF900B20B40 /* QuartzCore+SoundCloudUI.h in Headers */,
+				F6EF8CC813F92CF900B20B40 /* UIColor+SoundCloudUI.h in Headers */,
+				F6EF8CCA13F92CF900B20B40 /* UIImage+SoundCloudUI.h in Headers */,
+				F6EF8CCC13F92CF900B20B40 /* UIView+SoundCloudUI.h in Headers */,
 				F6EF8CD013F92CF900B20B40 /* SCAddConnectionViewController.h in Headers */,
 				F6EF8CD213F92CF900B20B40 /* SCAddConnectionViewControllerDelegate.h in Headers */,
 				F6EF8CD513F92CF900B20B40 /* SCBundle.h in Headers */,
@@ -475,12 +475,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6EF8CC313F92CF900B20B40 /* NSData+SoundCloudAPI.m in Sources */,
-				F6EF8CC513F92CF900B20B40 /* NSString+SoundCloudAPI.m in Sources */,
-				F6EF8CC613F92CF900B20B40 /* QuartzCore+SoundCloudAPI.m in Sources */,
-				F6EF8CC913F92CF900B20B40 /* UIColor+SoundCloudAPI.m in Sources */,
-				F6EF8CCB13F92CF900B20B40 /* UIImage+SoundCloudAPI.m in Sources */,
-				F6EF8CCD13F92CF900B20B40 /* UIView+SoundCloudAPI.m in Sources */,
+				F6EF8CC313F92CF900B20B40 /* NSData+SoundCloudUI.m in Sources */,
+				F6EF8CC513F92CF900B20B40 /* NSString+SoundCloudUI.m in Sources */,
+				F6EF8CC613F92CF900B20B40 /* QuartzCore+SoundCloudUI.m in Sources */,
+				F6EF8CC913F92CF900B20B40 /* UIColor+SoundCloudUI.m in Sources */,
+				F6EF8CCB13F92CF900B20B40 /* UIImage+SoundCloudUI.m in Sources */,
+				F6EF8CCD13F92CF900B20B40 /* UIView+SoundCloudUI.m in Sources */,
 				F6EF8CD113F92CF900B20B40 /* SCAddConnectionViewController.m in Sources */,
 				F6EF8CD613F92CF900B20B40 /* SCBundle.m in Sources */,
 				F6EF8CD813F92CF900B20B40 /* SCCoverImageButton.m in Sources */,

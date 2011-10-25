@@ -20,8 +20,8 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-#import "NSData+SoundCloudAPI.h"
-#import "UIColor+SoundCloudAPI.h"
+#import "NSData+SoundCloudUI.h"
+#import "UIColor+SoundCloudUI.h"
 
 #import "SCConstants.h"
 #import "SCBundle.h"

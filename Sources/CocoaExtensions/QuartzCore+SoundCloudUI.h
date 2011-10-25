@@ -18,18 +18,13 @@
  * 
  */
 
-#import "UIDevie+SoundCloudUI.h"
+#import <QuartzCore/QuartzCore.h>
 
-@implementation UIDevice (SoundCloudUI)
+extern void SC_CGContextAddRoundedRect(CGContextRef context,
+                                       CGRect rect,
+                                       CGFloat radius);
 
-+ (BOOL)isIPad;
-{
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		return YES; 
-	}
-#endif
-	return NO;
-}
-
-@end
+extern void SC_CGPathAddRoundedRect(CGMutablePathRef path,
+                                    const CGAffineTransform *m,
+                                    CGRect rect,
+                                    CGFloat radius);

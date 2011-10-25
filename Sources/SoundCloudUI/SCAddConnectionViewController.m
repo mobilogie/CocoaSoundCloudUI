@@ -18,9 +18,9 @@
  * 
  */
 
-#import "NSData+SoundCloudAPI.h"
+#import "NSData+SoundCloudUI.h"
 
-#import "NSString+SoundCloudAPI.h"
+#import "NSString+SoundCloudUI.h"
 
 
 #import "SCAccount.h"

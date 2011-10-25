@@ -18,8 +18,8 @@
  * 
  */
 
-#import "UIView+SoundCloudAPI.h"
-#import "UIImage+SoundCloudAPI.h"
+#import "UIView+SoundCloudUI.h"
+#import "UIImage+SoundCloudUI.h"
 #import "SCBundle.h"
 #import "SCSwitchLabel.h"
 

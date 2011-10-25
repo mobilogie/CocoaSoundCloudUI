@@ -18,7 +18,7 @@
  * 
  */
 
-#import "UIColor+SoundCloudAPI.h"
+#import "UIColor+SoundCloudUI.h"
 
 #import "SCNameAndEmailCell.h"
 

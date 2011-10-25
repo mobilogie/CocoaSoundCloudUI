@@ -18,18 +18,19 @@
  * 
  */
 
-#import "UIDevie+SoundCloudUI.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIDevice (SoundCloudUI)
 
-+ (BOOL)isIPad;
-{
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		return YES; 
-	}
-#endif
-	return NO;
-}
+@interface UIImage (SoundCloudUI)
+
++ (UIImage *)imageNamed:(NSString *)name leftCapWidth:(NSInteger)leftCapWidth topCapHeight:(NSInteger)topCapHeight;
+
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
++ (UIImage *)imageWithColor:(UIColor *)color;
+
+- (UIImage *)imageByResizingTo:(CGSize)newSize;
+- (UIImage *)imageByResizingTo:(CGSize)newSize forRetinaDisplay:(BOOL)forRetinaDisplay;
+
+- (UIImage *)imagebyRotationToOrientation:(UIImageOrientation)orient;
 
 @end

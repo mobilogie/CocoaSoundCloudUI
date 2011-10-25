@@ -25,9 +25,9 @@
 #import "SCAccount+Private.h"
 
 #import "UIDevie+SoundCloudUI.h"
-#import "UIColor+SoundCloudAPI.h"
-#import "UIImage+SoundCloudAPI.h"
-#import "QuartzCore+SoundCloudAPI.h"
+#import "UIColor+SoundCloudUI.h"
+#import "UIImage+SoundCloudUI.h"
+#import "QuartzCore+SoundCloudUI.h"
 
 #import "SCUIErrors.h"
 
