@@ -18,6 +18,8 @@
  * 
  */
 
+#import "UIViewController+SoundCloudUI.h"
+
 #import "JSONKit.h"
 #import "SCAPI.h"
 #import "SCAccount+Private.h"
@@ -1353,7 +1355,7 @@ const NSArray *allServices = nil;
     }
     
     // Dismiss modal view
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [[self modalPresentingViewController] dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)relogin;
@@ -1367,7 +1369,7 @@ const NSArray *allServices = nil;
 
 - (IBAction)close;
 {
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [[self modalPresentingViewController] dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark Notification Handling
@@ -1486,7 +1488,7 @@ const NSArray *allServices = nil;
     if (self.completionHandler) {
         self.completionHandler(nil, anError);
     }
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [[self modalPresentingViewController] dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark Helpers

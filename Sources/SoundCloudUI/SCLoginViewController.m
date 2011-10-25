@@ -18,6 +18,8 @@
  * 
  */
 
+#import "UIViewController+SoundCloudUI.h"
+
 #import "SCLoginView.h"
 #import "SCConnectToSoundCloudTitleView.h"
 #import "NXOAuth2AccountStore.h"
@@ -139,7 +141,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
 {
-    return [self.navigationController.parentViewController shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
+    return[[self modalPresentingViewController] shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
 }
 
 #pragma mark Notifications
@@ -150,7 +152,7 @@
         self.completionHandler(nil);
     }
     
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [[self modalPresentingViewController] dismissModalViewControllerAnimated:YES];
 }
 
 - (void)failToRequestAccess:(NSNotification *)aNotification;
@@ -160,7 +162,7 @@
         self.completionHandler(error);
     }
     
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [[self modalPresentingViewController] dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -173,7 +175,7 @@
         self.completionHandler([NSError errorWithDomain:SCUIErrorDomain code:SCUICanceledErrorCode userInfo:userInfo]);
     }
     
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [[self modalPresentingViewController] dismissModalViewControllerAnimated:YES];
 }
 
 

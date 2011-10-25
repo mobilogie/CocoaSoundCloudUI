@@ -18,6 +18,7 @@
  * 
  */
 
+#import "UIViewController+SoundCloudUI.h"
 
 #import "SCRecordingSaveViewController.h"
 
@@ -108,7 +109,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
 {
-    return [self.parentViewController shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
+    return [[self modalPresentingViewController] shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
 }
 
 
