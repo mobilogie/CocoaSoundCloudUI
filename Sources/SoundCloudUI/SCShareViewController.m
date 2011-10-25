@@ -90,6 +90,11 @@
     [self.recordSaveController setTags:someTags];
 }
 
+- (void)setSharingNote:(NSString *)aSharingNote;
+{
+    [self.recordSaveController setSharingNote:aSharingNote];
+}
+
 - (SCRecordingSaveViewController *)recordSaveController;
 {
     return (SCRecordingSaveViewController *)self.topViewController;

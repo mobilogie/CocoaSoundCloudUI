@@ -67,6 +67,7 @@
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSDate *trackCreationDate;
 @property (nonatomic, retain) NSArray *customTags;
+@property (nonatomic, retain) NSString *customSharingNote;
 
 @property (nonatomic, retain) CLLocation *location;
 @property (nonatomic, copy) NSString *locationTitle;
@@ -183,6 +184,7 @@ const NSArray *allServices = nil;
 @synthesize title;
 @synthesize trackCreationDate;
 @synthesize customTags;
+@synthesize customSharingNote;
 
 @synthesize location;
 @synthesize locationTitle;
@@ -399,6 +401,11 @@ const NSArray *allServices = nil;
 - (void)setTags:(NSArray *)someTags;
 {
     self.customTags = someTags;
+}
+
+- (void)setSharingNote:(NSString *)aSharingNote;
+{
+    self.customSharingNote = aSharingNote;
 }
 
 - (void)setAvailableConnections:(NSArray *)value;
@@ -1513,7 +1520,10 @@ const NSArray *allServices = nil;
 
 - (NSString *)generatedSharingNote;
 {
-    NSString *note = nil;
+    NSString *note = self.customSharingNote;
+    if (note) {
+        return note;
+    }
     
     if (self.title.length > 0) {
         if (self.locationTitle.length > 0) {
