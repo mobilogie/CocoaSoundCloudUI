@@ -410,19 +410,33 @@
             
             if ([UIDevice isIPad]) {
                 offset.y += 16;
+                self.resultImage.image = [SCBundle imageWithName:@"ipad"];
+                [self.resultImage sizeToFit];
+                
+                self.resultImage.frame = CGRectMake(offset.x - 15,
+                                                    offset.y,
+                                                    180,
+                                                    144);
+
+                self.resultImage.clipsToBounds = YES;
+                self.resultImage.contentMode = UIViewContentModeTop;
+                
+                offset.y += CGRectGetHeight(self.resultImage.frame) + 6;
             } else {
                 offset.y += 8;
+                self.resultImage.image = [SCBundle imageWithName:@"iphone"];
+                self.resultImage.frame = CGRectMake(offset.x,
+                                                    offset.y,
+                                                    70,
+                                                    151);
+                
+                self.resultImage.clipsToBounds = YES;
+                self.resultImage.contentMode = UIViewContentModeTop;
+                
+                offset.y += CGRectGetHeight(self.resultImage.frame);
             }
             
-            self.resultImage.image = [SCBundle imageWithName:@"iphone"];
-            [self.resultImage sizeToFit];
-            self.resultImage.frame = CGRectMake(offset.x + 6,
-                                                offset.y,
-                                                CGRectGetWidth(self.resultImage.frame),
-                                                CGRectGetHeight(self.resultImage.frame));
-            
-            offset.y += CGRectGetHeight(self.resultImage.frame);
-            
+            CGFloat imagePadding = [UIDevice isIPad] ? 28: 10;
             if ([self appURL]) {
                 self.openAppButton.hidden = NO;
                 self.openAppStoreButton.hidden = YES;
@@ -431,20 +445,26 @@
                 NSMutableAttributedString *text = [NSMutableAttributedString attributedStringWithString:SCLocalizedString(@"record_save_upload_success_message_app", @"See who's commenting on your sounds by opening it in the SoundCloud app.")];
                 [text setFont:self.resultText.font];
                 self.resultText.attributedText = text;
+
+                CGSize resultTextSize = [self.resultText sizeThatFits:CGSizeMake(innerWitdh - 3 - CGRectGetWidth(self.resultImage.frame) - imagePadding,
+                                                                                 CGFLOAT_MAX)];
                 
-                self.resultText.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + 10,
+                self.resultText.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + imagePadding,
                                                    CGRectGetMinY(self.resultImage.frame) + 6,
-                                                   innerWitdh - 3 - CGRectGetWidth(self.resultImage.frame) - 10,
-                                                   CGRectGetHeight(self.resultImage.frame) - 12 - CGRectGetHeight(self.openAppButton.frame));
+                                                   resultTextSize.width,
+                                                   resultTextSize.height);
                 
-                self.openAppButton.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + 10,
-                                                      CGRectGetMaxY(self.resultImage.frame) - CGRectGetHeight(self.openAppButton.frame) - 3,
+                self.openAppButton.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + imagePadding,
+                                                      CGRectGetMaxY(self.resultText.frame) + 20,
                                                       CGRectGetWidth(self.openAppButton.frame),
                                                       CGRectGetHeight(self.openAppButton.frame));
                 
                 offset.x = horizontalMargin;
-                offset.y = CGRectGetMaxY(self.openAppButton.frame);
-                
+                offset.y = fmaxf(CGRectGetMaxY(self.openAppButton.frame), CGRectGetMaxY(self.resultImage.frame));
+
+                if (![UIDevice isIPad]) {
+                    offset.y -= 8;
+                }
             } else {
                 self.openAppButton.hidden = YES;
                 self.openAppStoreButton.hidden = NO;
@@ -462,18 +482,25 @@
                 
                 self.resultText.attributedText = text;
                 
-                self.resultText.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + 10,
-                                                   CGRectGetMinY(self.resultImage.frame) + 6,
-                                                   innerWitdh - 3 - CGRectGetWidth(self.resultImage.frame) - 10,
-                                                   CGRectGetHeight(self.resultImage.frame) - 12 - CGRectGetHeight(self.openAppStoreButton.frame));
+                CGSize resultTextSize = [self.resultText sizeThatFits:CGSizeMake(innerWitdh - 3 - CGRectGetWidth(self.resultImage.frame) - imagePadding,
+                                                                                 CGFLOAT_MAX)];
                 
-                self.openAppStoreButton.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + 10,
-                                                      CGRectGetMaxY(self.resultImage.frame) - CGRectGetHeight(self.openAppStoreButton.frame) - 3,
-                                                      CGRectGetWidth(self.openAppStoreButton.frame),
-                                                      CGRectGetHeight(self.openAppStoreButton.frame));
+                self.resultText.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + imagePadding,
+                                                   CGRectGetMinY(self.resultImage.frame) + 6,
+                                                   resultTextSize.width,
+                                                   resultTextSize.height);
+                
+                self.openAppStoreButton.frame = CGRectMake(CGRectGetMaxX(self.resultImage.frame) + imagePadding,
+                                                           CGRectGetMaxY(self.resultText.frame) + 10,
+                                                           CGRectGetWidth(self.openAppStoreButton.frame),
+                                                           CGRectGetHeight(self.openAppStoreButton.frame));
                 
                 offset.x = horizontalMargin;
-                offset.y = CGRectGetMaxY(self.openAppStoreButton.frame);
+                offset.y = fmaxf(CGRectGetMaxY(self.openAppStoreButton.frame), CGRectGetMaxY(self.resultImage.frame));
+                
+                if (![UIDevice isIPad]) {
+                    offset.y -= 8;
+                }
             }
             break;
         }
