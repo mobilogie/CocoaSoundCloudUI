@@ -29,7 +29,7 @@
 #import "SCBundle.h"
 #import "SCTextField.h"
 
-#import "UIDevie+SoundCloudUI.h"
+#import "UIDevice+SoundCloudUI.h"
 
 #import "SCRecordingSaveViewControllerHeaderView.h"
 

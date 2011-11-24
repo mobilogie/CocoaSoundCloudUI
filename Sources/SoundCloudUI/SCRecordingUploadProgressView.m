@@ -25,7 +25,7 @@
 #import "NSAttributedString+Attributes.h"
 #import "QuartzCore+SoundCloudUI.h"
 #import "UIImage+SoundCloudUI.h"
-#import "UIDevie+SoundCloudUI.h"
+#import "UIDevice+SoundCloudUI.h"
 
 #import "SCBundle.h"
 

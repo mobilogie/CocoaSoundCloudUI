@@ -24,7 +24,7 @@
 #import "SCAPI.h"
 #import "SCAccount+Private.h"
 
-#import "UIDevie+SoundCloudUI.h"
+#import "UIDevice+SoundCloudUI.h"
 #import "UIColor+SoundCloudUI.h"
 #import "UIImage+SoundCloudUI.h"
 #import "QuartzCore+SoundCloudUI.h"

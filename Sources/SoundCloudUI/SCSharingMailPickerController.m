@@ -21,7 +21,7 @@
 
 #import "SCNameAndEmailCell.h"
 #import "SCBundle.h"
-#import "UIDevie+SoundCloudUI.h"
+#import "UIDevice+SoundCloudUI.h"
 
 #import "SCSharingMailPickerController.h"
 

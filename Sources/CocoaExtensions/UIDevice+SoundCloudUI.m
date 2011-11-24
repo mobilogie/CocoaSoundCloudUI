@@ -18,7 +18,7 @@
  * 
  */
 
-#import "UIDevie+SoundCloudUI.h"
+#import "UIDevice+SoundCloudUI.h"
 
 @implementation UIDevice (SoundCloudUI)
 
