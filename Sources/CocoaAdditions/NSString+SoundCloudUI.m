@@ -20,7 +20,13 @@
 
 #include <CommonCrypto/CommonDigest.h>
 
+#if TARGET_OS_IPHONE
 #import "JSONKit.h"
+#else
+#import <JSONKit/JSONKit.h>
+#endif
+
+
 
 #import "NSString+SoundCloudUI.h"
 
