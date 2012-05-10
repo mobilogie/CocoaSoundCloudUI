@@ -141,7 +141,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
 {
-    return[[self modalPresentingViewController] shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
+    return (toInterfaceOrientation == UIInterfaceOrientationPortrait); //[[self modalPresentingViewController] shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
 }
 
 #pragma mark Notifications
